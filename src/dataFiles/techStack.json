@@ -1,0 +1,55 @@
+{
+    "programming": [
+        "Kotlin",
+        "Java",
+        "Typescript",
+        "Javascript",
+        "sql",
+        "bash",
+        "C"
+    ],
+    "framework": [
+        "spring",
+        "micronaut",
+        "Node",
+        "React",
+        "Svelte",
+        "Django",
+        "Kotlin multiplatform"
+    ],
+    "clouds": [
+        {
+            "name": "AWS",
+            "resources": [
+                "Lambda",
+                "Fargate",
+                "SQS",
+                "DynamoDB",
+                "Cloudfront",
+                "S3",
+                "ElastiCache",
+                "Aurora/RDS",
+                "Cloudwatch"
+            ]
+        },
+        {
+            "name": "Azure",
+            "resources": [
+                "App Service",
+                "Cosmos db",
+                "Container app",
+                "Blob storage",
+                "Table storage",
+                "SQL server"
+            ]
+        }
+    ],
+    "cicd": [
+        "Gitlab ci",
+        "Github actions"
+    ],
+    "iac": [
+        "Terraform",
+        "Cloud formation"
+    ]
+}
