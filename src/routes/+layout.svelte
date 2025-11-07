@@ -8,11 +8,13 @@
 <style>
 	:root {
 		--bg: #ffffff;
+		--comp-bg: #b3b0b0;
 		--text: #000000;
 	}
 
 	:root.dark {
 		--bg: #000000;
+		--comp-bg: #3d3c3c;
 		--text: #ffffff;
 	}
 

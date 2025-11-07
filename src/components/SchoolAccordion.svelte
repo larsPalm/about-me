@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { writable, derived } from "svelte/store";
-    import { theme } from "../stores/themeStore";
+    import { writable } from "svelte/store";
     import type { School } from "../types/school";
 
     export let name: string = "";
@@ -11,18 +10,9 @@
 
     const isOpen = writable(false);
     const toggle = () => isOpen.update((v) => !v);
-
-    // Reactive colors based on theme store
-    const bg = derived(theme, ($theme) =>
-        $theme === "dark" ? "#000000" : "#ffffff",
-    );
-    const text = derived(theme, ($theme) =>
-        $theme === "dark" ? "#ffffff" : "#000000",
-    );
-    const linkColor = "#1e90ff"; // consistent blue for links
 </script>
 
-<div class="accordion-item" style="background-color: {$bg}; color: {$text};">
+<div class="accordion-item">
     <div class="header" on:click={toggle}>
         <span>{name || "No Name"}</span>
         <span>{$isOpen ? "▲" : "▼"}</span>
@@ -41,19 +31,28 @@
 
 <style>
     .accordion-item {
-        border: 1px solid var(--text);
+        border: 1px solid var(--text-color);
+        background-color: var(--comp-bg); /* use CSS variable */
         border-radius: 1rem;
         padding: 1rem;
-        max-width: 320px;
+        width: 320px; /* fixed width for uniformity */
+        max-width: 100%; /* prevents overflow on small screens */
         box-shadow:
-            0 4px 8px rgba(0, 0, 0, 0.1),
-            inset 0 0 8px rgba(0, 0, 0, 0.05);
-        margin: 0.5rem auto;
+            0 4px 8px rgba(0, 0, 0, 0.2),
+            inset 0 0 6px rgba(0, 0, 0, 0.05);
+        margin: 0.5rem auto; /* center horizontally */
         cursor: pointer;
         transition:
             background 0.25s ease,
             color 0.25s ease,
             box-shadow 0.25s ease;
+    }
+
+    /* Adjust shadow for dark mode */
+    html.dark-mode .accordion-item {
+        box-shadow:
+            0 4px 8px rgba(255, 255, 255, 0.1),
+            inset 0 0 6px rgba(255, 255, 255, 0.05);
     }
 
     .header {

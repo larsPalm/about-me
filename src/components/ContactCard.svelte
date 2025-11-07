@@ -1,6 +1,5 @@
 <script lang="ts">
-    import { writable, derived } from "svelte/store";
-    import { theme } from "../stores/themeStore";
+    import { writable } from "svelte/store";
 
     export let name: string = "John Doe";
     export let email: string = "john.doe@example.com";
@@ -11,17 +10,10 @@
     const isOpen = writable(false);
     const toggle = () => isOpen.update((v) => !v);
 
-    // Reactive colors based on theme
-    const bg = derived(theme, ($theme) =>
-        $theme === "dark" ? "#000000" : "#ffffff",
-    );
-    const text = derived(theme, ($theme) =>
-        $theme === "dark" ? "#ffffff" : "#000000",
-    );
     const linkColor = "#1e90ff"; // always blue for links
 </script>
 
-<div class="card" style="background-color: {$bg}; color: {$text};">
+<div class="card">
     <div class="header" on:click={toggle}>
         <span>Contact Info</span>
         <span>{$isOpen ? "▲" : "▼"}</span>
@@ -34,8 +26,9 @@
             <a
                 href={"mailto:" + email}
                 style="color: {linkColor}; text-decoration: underline;"
-                >{email}</a
             >
+                {email}
+            </a>
         </div>
         <div class="info-row">
             <strong>GitHub:</strong>
@@ -44,44 +37,56 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 style="color: {linkColor}; text-decoration: underline;"
-                >{github}</a
             >
+                {github}
+            </a>
         </div>
-        <div class="info-row">
-            <strong>LinkedIn:</strong>
-            <a
-                href={LinkedIn}
-                target="_blank"
-                rel="noopener noreferrer"
-                style="color: {linkColor}; text-decoration: underline;"
-                >{LinkedIn}</a
-            >
-        </div>
+        {#if LinkedIn}
+            <div class="info-row">
+                <strong>LinkedIn:</strong>
+                <a
+                    href={LinkedIn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: {linkColor}; text-decoration: underline;"
+                >
+                    {LinkedIn}
+                </a>
+            </div>
+        {/if}
         <div class="info-row"><strong>Phone:</strong> {phone}</div>
     </div>
 </div>
 
 <style>
     .card {
-        border: 1px solid;
-        border-radius: 1rem; /* more rounded corners */
+        border: 1px solid var(--text-color);
+        border-radius: 1rem; /* rounded corners */
         padding: 1rem;
         max-width: 320px;
-        /* soft shadow for shaded corners */
+        background-color: var(--comp-bg); /* use global variable */
         box-shadow:
             0 4px 8px rgba(0, 0, 0, 0.1),
-            /* subtle outer shadow */ inset 0 0 8px rgba(0, 0, 0, 0.05); /* soft inner shade */
+            inset 0 0 8px rgba(0, 0, 0, 0.05); /* soft inner shade */
+        margin: 1rem auto;
+        cursor: pointer;
         transition:
             background 0.25s ease,
             color 0.25s ease,
             box-shadow 0.25s ease;
     }
 
+    /* Adjust box-shadow for dark mode */
+    html.dark-mode .card {
+        box-shadow:
+            0 4px 8px rgba(255, 255, 255, 0.1),
+            inset 0 0 8px rgba(255, 255, 255, 0.05);
+    }
+
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        cursor: pointer;
         font-weight: bold;
         font-size: 1.1rem;
     }
@@ -107,5 +112,10 @@
 
     .info-row {
         margin: 0.25rem 0;
+    }
+
+    a {
+        color: #1e90ff;
+        text-decoration: underline;
     }
 </style>

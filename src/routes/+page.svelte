@@ -1,8 +1,7 @@
 <script lang="ts">
     import ContactCard from "../components/ContactCard.svelte";
-    import SchoolAccordion from "../components/SchoolAccordion.svelte";
+    import EducationDisplay from "../components/EducationDisplay.svelte";
     import contact from "../dataFiles/contactInfo.json";
-    import schoolJson from "../dataFiles/schools.json";
     import { writable } from "svelte/store";
 
     const showCV = writable(true);
@@ -18,16 +17,7 @@
 />
 <div class="center">
     <div class="body" class:hidden={!$showCV} class:visible={$showCV}>
-        <h1>Skoler</h1>
-        {#each schoolJson.schools as school}
-            <SchoolAccordion
-                name={String(school.name)}
-                type={String(school.type)}
-                from={String(school.from)}
-                to={String(school.to)}
-                fordypning={String(school.fordypning)}
-            />
-        {/each}
+        <EducationDisplay />
     </div>
 </div>
 
