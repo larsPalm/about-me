@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ThemeToggle from "../components/ThemeToggle.svelte";
+	export const prerender = true;
 </script>
 
 <ThemeToggle />

@@ -1,8 +1,8 @@
 <script lang="ts">
     import ContactCard from "../components/ContactCard.svelte";
     import ContentSwitch from "../components/ContentSwitch.svelte";
-    import EducationDisplay from "../components/EducationDisplay.svelte";
     import contact from "../dataFiles/contactInfo.json";
+    export const prerender = true;
 </script>
 
 <div class="center-vert">
