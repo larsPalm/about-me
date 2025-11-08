@@ -2,19 +2,21 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
+const dev = process.argv.includes('dev'); // Detect if running locally
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		// This is where the adapter goes
 		adapter: adapter({
-			pages: 'build',      // folder where prerendered pages go
-			assets: 'build',     // folder for static assets
-			fallback: 'index.html' // SPA-style fallback for dynamic client-side routes
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html'
 		}),
-
-		// prerender all known routes
+		paths: {
+			base: dev ? '' : '/about-me' // ✅ Only add base path in production
+		},
 		prerender: {
 			entries: ['*']
 		}
