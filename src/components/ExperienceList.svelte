@@ -9,7 +9,7 @@
 <div class="experience-container">
     <h1>Erfaring</h1>
     <div class="experience-list">
-        {#each erfaring.erfaring as exp (exp.company)}
+        {#each erfaring.erfaring as exp}
             <ExperienceAccordion experience={exp} />
         {/each}
     </div>
@@ -18,29 +18,22 @@
 <style>
     .experience-container {
         display: flex;
-        flex-direction: column; /* vertical stacking */
-        align-items: center; /* center horizontally */
-        gap: 1rem; /* spacing between header and accordions */
-        margin: 2rem 0; /* optional top/bottom spacing */
+        flex-direction: column;
+        gap: 0.5rem; /* smaller spacing */
+        width: 100%; /* fill parent flex item */
     }
 
     .experience-container h1 {
-        margin: 0;
-        font-size: 2rem;
-        font-weight: bold;
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+        text-align: center;
     }
 
     .experience-list {
         display: flex;
-        flex-direction: column; /* vertical stacking */
-        gap: 1rem; /* spacing between accordions */
-        align-items: center;
-        max-width: 360px; /* match accordion width for consistency */
-    }
-
-    @media (min-width: 768px) {
-        .experience-list {
-            max-width: 400px; /* slightly wider on bigger screens */
-        }
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%; /* fill parent */
+        align-items: stretch; /* accordion items take full width */
     }
 </style>

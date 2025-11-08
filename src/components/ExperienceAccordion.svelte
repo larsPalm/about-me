@@ -1,20 +1,20 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
     import type { Experience } from "../types/experience";
 
     export let experience: Experience;
 
-    const isOpen = writable(false);
-    const toggle = () => isOpen.update((v) => !v);
+    // local state for this accordion item
+    let isOpen = false;
+    const toggle = () => (isOpen = !isOpen);
 </script>
 
 <div class="accordion-item">
     <div class="header" on:click={toggle}>
         <span>{experience.company || "Unknown Company"}</span>
-        <span>{$isOpen ? "▲" : "▼"}</span>
+        <span>{isOpen ? "▲" : "▼"}</span>
     </div>
 
-    <div class="body" class:hidden={!$isOpen} class:visible={$isOpen}>
+    <div class="body" class:hidden={!isOpen} class:visible={isOpen}>
         {#if experience.department}
             <div><strong>Department:</strong> {experience.department}</div>
         {/if}
@@ -30,7 +30,7 @@
                 : experience.to || "?"}
         </div>
 
-        {#if experience.remarks && experience.remarks.length > 0}
+        {#if experience.remarks.length > 0}
             <div class="remarks">
                 <strong>Remarks:</strong>
                 <ul>
@@ -47,9 +47,9 @@
 
 <style>
     .accordion-item {
-        max-width: 200px;
-        margin: 0.5rem auto;
-        padding: 1rem;
+        width: 100%;
+        margin: 0;
+        padding: 0.8rem;
         border-radius: 1rem;
         border: 1px solid var(--text-color);
         background-color: var(--comp-bg);
@@ -61,12 +61,6 @@
             background 0.25s ease,
             color 0.25s ease,
             box-shadow 0.25s ease;
-    }
-
-    html.dark-mode .accordion-item {
-        box-shadow:
-            0 4px 8px rgba(255, 255, 255, 0.1),
-            inset 0 0 6px rgba(255, 255, 255, 0.05);
     }
 
     .header {
@@ -91,7 +85,7 @@
     }
 
     .body.visible {
-        max-height: 600px;
+        max-height: 800px;
         opacity: 1;
     }
 
@@ -104,6 +98,7 @@
     }
 
     .remarks ul {
-        margin: 0.25rem 0 0.5rem 1rem;
+        padding-left: 1rem;
+        margin: 0.25rem 0 0.5rem 0;
     }
 </style>

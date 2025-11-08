@@ -14,19 +14,93 @@
             ]
         },
         {
-            "company": "",
-            "department": "",
-            "role": "",
-            "from": "",
-            "to": "",
-            "remarks": []
+            "company": "DNB",
+            "department": "T&S GT Greenhouse",
+            "role": "IT architect graduate",
+            "from": "august 2022",
+            "to": "august 2025",
+            "current": false,
+            "remarks": [
+                "software engineer",
+                "Solution architect",
+                "devops",
+                "corporate banking",
+                "payments",
+                "AWS",
+                "Azure",
+                "UiO",
+                "Graduate",
+                "liquidity",
+                "mobile corporate app",
+                "chatbots"
+            ]
         },
         {
-            "company": "",
+            "company": "Famme",
             "department": "",
-            "role": "",
-            "from": "",
-            "to": "",
+            "role": "Utvikler, internship",
+            "from": "juni 2021",
+            "to": "august 2021",
+            "current": false,
+            "remarks": [
+                "ecommerce",
+                "python",
+                "database",
+                "web scraping"
+            ]
+        },
+        {
+            "company": "UiO",
+            "department": "Instititut for informatikk",
+            "role": "Gruppelærer i IN1000",
+            "from": "ausust 2021",
+            "to": "desember 2021",
+            "current": false,
+            "remarks": [
+                "programmering",
+                "python",
+                "objektorientert programmering",
+                "gruppelærer",
+                "retting av innleveringer"
+            ]
+        },
+        {
+            "company": "UiO",
+            "department": "Instititut for informatikk",
+            "role": "Gruppelærer i IN1000",
+            "from": "januar 2021",
+            "to": "juli 2021",
+            "current": false,
+            "remarks": [
+                "programmering",
+                "python",
+                "objektorientert programmering",
+                "gruppelærer",
+                "retting av innleveringer"
+            ]
+        },
+        {
+            "company": "UiO",
+            "department": "Instititut for informatikk",
+            "role": "Gruppelærer i IN1000",
+            "from": "august 2020",
+            "to": "desember 2020",
+            "current": false,
+            "remarks": [
+                "programmering",
+                "python",
+                "objektorientert programmering",
+                "gruppelærer",
+                "retting av innleveringer"
+            ]
+        },
+        {
+            "company": "Oppegård kommune",
+            "department": "resursbanken",
+            "role": "tilkallingsvikar",
+            "from": "mai 2017",
+            "to": "desember 2017",
+            "current": false,
             "remarks": []
         }
     ]

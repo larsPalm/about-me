@@ -15,17 +15,17 @@
             "fordypning": "Realfag: matte, kjemi, fysikk, og IT"
         },
         {
-            "name": "Tårnåsen skole",
-            "type": "Barneskole",
-            "from": "2003",
-            "to": "2010",
-            "fordypning": ""
-        },
-        {
             "name": "Hellerasten ungdomskole",
             "type": "Ungdomskole",
             "from": "2010",
             "to": "2013",
+            "fordypning": ""
+        },
+        {
+            "name": "Tårnåsen skole",
+            "type": "Barneskole",
+            "from": "2003",
+            "to": "2010",
             "fordypning": ""
         }
     ]

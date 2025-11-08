@@ -32,7 +32,7 @@
         ],
         "thesis": {
             "name": "The Cesar Framework",
-            "subTitle": "",
+            "subTitle": "A framework for storing and analyzing OSA data from smartwatches",
             "topics": [
                 "event emitting",
                 "server",

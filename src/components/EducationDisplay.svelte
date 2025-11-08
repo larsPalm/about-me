@@ -1,6 +1,5 @@
 <script>
     import EducationList from "./EducationList.svelte";
-    import ExperienceList from "./ExperienceList.svelte";
     import SchoolList from "./SchoolList.svelte";
 </script>
 
@@ -11,10 +10,18 @@
 
 <style>
     .school-list-container {
-        display: flex; /* enables horizontal layout */
-        flex-wrap: wrap; /* allows wrapping if the screen is small */
-        gap: 1rem; /* spacing between components */
-        justify-content: center; /* optional: center horizontally */
-        width: 100%;
+        display: flex;
+        flex-wrap: wrap; /* allow wrapping */
+        gap: 1rem;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    /* Each list container gets fixed width */
+    .school-list-container > * {
+        flex: 0 0 340px; /* fixed width, prevent flex from stretching */
+        display: flex;
+        flex-direction: column; /* stack items vertically inside each list */
+        margin: 0; /* remove auto margins */
     }
 </style>

@@ -1,5 +1,6 @@
 <script lang="ts">
     import ContactCard from "../components/ContactCard.svelte";
+    import ContentSwitch from "../components/ContentSwitch.svelte";
     import EducationDisplay from "../components/EducationDisplay.svelte";
     import contact from "../dataFiles/contactInfo.json";
 </script>
@@ -20,9 +21,7 @@
         </div>
     </div>
     <div class="center">
-        <div class="body">
-            <EducationDisplay />
-        </div>
+        <ContentSwitch />
     </div>
 </div>
 
