@@ -5,7 +5,7 @@
     import Competance from "./Competance.svelte";
     import TechPreferance from "./TechPreferance.svelte";
 
-    const tabs = ["Education", "Experience", "Kompetanse", "Faglig interesser"];
+    const tabs = ["Utdanning", "Erfaring", "Kompetanse", "Faglig interesser"];
     const activeTab = writable(tabs[1]);
 
     const setTab = (tab: string) => {
@@ -26,9 +26,9 @@
     </div>
 
     <div class="tab-content">
-        {#if $activeTab === "Education"}
+        {#if $activeTab === "Utdanning"}
             <EducationDisplay />
-        {:else if $activeTab === "Experience"}
+        {:else if $activeTab === "Erfaring"}
             <ExperienceList />
         {:else if $activeTab === "Faglig interesser"}
             <TechPreferance />
@@ -39,49 +39,39 @@
 </div>
 
 <style>
-    .tab-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .tab-buttons button {
+    button {
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
         border: 1px solid var(--text);
-        background: var(--comp-bg);
+        background-color: blue;
+        color: white;
         cursor: pointer;
         font-weight: bold;
         transition:
-            background 0.2s,
-            color 0.2s;
+            background-color 0.25s ease,
+            color 0.25s ease,
+            box-shadow 0.25s ease;
     }
 
-    .tab-buttons button.active {
-        background: var(--text);
+    /* Active tab */
+    button.active {
+        background-color: #ff0000;
+        color: var(--bg);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Hover effect */
+    button:hover {
+        background-color: var(--comp-bg);
         color: var(--bg);
     }
 
-    .tab-content {
+    /* Optional: spacing for multiple buttons */
+    .tab-buttons {
         display: flex;
-        justify-content: center;
+        gap: 0.5rem;
         flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .school-list-container {
-        display: flex;
-        flex-wrap: wrap; /* allow wrapping */
-        gap: 1rem;
         justify-content: center;
-        align-items: flex-start;
-    }
-
-    .school-list-container > * {
-        flex: 0 0 340px; /* fixed width */
-        display: flex;
-        flex-direction: column;
-        margin: 0;
+        margin-bottom: 1rem;
     }
 </style>

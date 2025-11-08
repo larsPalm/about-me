@@ -3,12 +3,12 @@
     import "../styles/global.scss"; // Import the global styles for theme
     import { theme } from "../stores/themeStore";
 
-    let darkMode = false;
+    let darkMode = true;
 
     // Check for the theme preference when the component mounts
     onMount(() => {
         darkMode = document.documentElement.classList.contains("dark-mode");
-        theme.set("light");
+        theme.set("dark");
     });
 
     // Function to toggle the theme

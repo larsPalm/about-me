@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 import { browser } from "$app/environment"; // Import browser check from SvelteKit
 
 // Get the initial theme safely
-const initialTheme = browser && localStorage.getItem("theme") === "dark" ? "dark" : "light";
+const initialTheme = "dark";
 
 export const theme = writable(initialTheme);
 
