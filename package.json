@@ -3,6 +3,7 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
+	"homepage": "https://larsPalm.github.io/about-me",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -11,7 +12,9 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"deploy": "gh-pages -d build",
+		"build_and_deploy": "npm run build && npm run deploy"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
@@ -24,6 +27,7 @@
 		"eslint": "^9.38.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.12.4",
+		"gh-pages": "^6.3.0",
 		"globals": "^16.4.0",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
