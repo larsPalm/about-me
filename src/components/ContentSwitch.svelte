@@ -1,12 +1,11 @@
 <script lang="ts">
     import { writable } from "svelte/store";
-
-    import SchoolList from "./SchoolList.svelte";
-    import EducationList from "./EducationList.svelte";
     import ExperienceList from "./ExperienceList.svelte";
     import EducationDisplay from "./EducationDisplay.svelte";
+    import Competance from "./Competance.svelte";
+    import TechPreferance from "./TechPreferance.svelte";
 
-    const tabs = ["Education", "Experience", "Hobby"];
+    const tabs = ["Education", "Experience", "Kompetanse", "Faglig interesser"];
     const activeTab = writable(tabs[1]);
 
     const setTab = (tab: string) => {
@@ -31,8 +30,10 @@
             <EducationDisplay />
         {:else if $activeTab === "Experience"}
             <ExperienceList />
-        {:else if $activeTab === "Hobby"}
-            <h1>tba</h1>
+        {:else if $activeTab === "Faglig interesser"}
+            <TechPreferance />
+        {:else if $activeTab === "Kompetanse"}
+            <Competance />
         {/if}
     </div>
 </div>
