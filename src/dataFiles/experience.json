@@ -1,0 +1,33 @@
+{
+    "erfaring": [
+        {
+            "company": "DNB",
+            "department": "T&S B&P PCS Engineering",
+            "role": "Software Engineer",
+            "from": "august 2025",
+            "to": "dd",
+            "current": true,
+            "remarks": [
+                "devops",
+                "infrastructure",
+                "aws"
+            ]
+        },
+        {
+            "company": "",
+            "department": "",
+            "role": "",
+            "from": "",
+            "to": "",
+            "remarks": []
+        },
+        {
+            "company": "",
+            "department": "",
+            "role": "",
+            "from": "",
+            "to": "",
+            "remarks": []
+        }
+    ]
+}

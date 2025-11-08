@@ -8,5 +8,5 @@ export interface Education {
     from: string,
     grade: string,
     subjects: string[],
-    thesis: Thesis | undefined
+    thesis?: Thesis
 }

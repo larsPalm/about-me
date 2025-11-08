@@ -1,38 +1,18 @@
 {
-    "bachelor": {
+    "dnb": {
         "school": "Universitetet i Oslo",
-        "name": "Informatikk: programmering og systemarkitektur",
-        "type": "Bachelor",
-        "from": "2017",
-        "to": "2020",
-        "grade": "C-B",
+        "name": "Årsstudium i IT-arkitektur",
+        "type": "Årsenhet",
+        "from": "2022",
+        "to": "2025",
+        "grade": "B-C",
         "subjects": [
-            "database",
-            "sikkerhet",
-            "progammering",
-            "objektorientert programmering",
-            "algoritmer",
-            "datastrukturer",
-            "smidig utvikling",
-            "apputvikling",
-            "scripting"
-        ]
-    },
-    "pt": {
-        "school": "Akademiet For Personlig Trening",
-        "name": "Personlig trener",
-        "type": "1/2 årsenhet",
-        "from": "2018",
-        "to": "2029",
-        "grade": "Bestått",
-        "subjects": [
-            "antatomi",
-            "treningslære",
-            "ernæring",
-            "mental trening",
-            "PT",
-            "stryketrening",
-            "utholdenhetstrening"
+            "utvikling/drift av komplekse systemer",
+            "devops",
+            "arkitektur",
+            "ledelse",
+            "innovasjon",
+            "digital innvoasjon"
         ]
     },
     "master": {
@@ -64,20 +44,40 @@
             ]
         }
     },
-    "dnb": {
-        "school": "Universitetet i Oslo",
-        "name": "Årsstudium i IT-arkitektur",
-        "type": "Årsenhet",
-        "from": "2022",
-        "to": "2025",
-        "grade": "B-C",
+    "pt": {
+        "school": "Akademiet For Personlig Trening",
+        "name": "Personlig trener",
+        "type": "1/2 årsenhet",
+        "from": "2018",
+        "to": "2029",
+        "grade": "Bestått",
         "subjects": [
-            "utvikling/drift av komplekse systemer",
-            "devops",
-            "arkitektur",
-            "ledelse",
-            "innovasjon",
-            "digital innvoasjon"
+            "antatomi",
+            "treningslære",
+            "ernæring",
+            "mental trening",
+            "PT",
+            "stryketrening",
+            "utholdenhetstrening"
+        ]
+    },
+    "bachelor": {
+        "school": "Universitetet i Oslo",
+        "name": "Informatikk: programmering og systemarkitektur",
+        "type": "Bachelor",
+        "from": "2017",
+        "to": "2020",
+        "grade": "C-B",
+        "subjects": [
+            "database",
+            "sikkerhet",
+            "progammering",
+            "objektorientert programmering",
+            "algoritmer",
+            "datastrukturer",
+            "smidig utvikling",
+            "apputvikling",
+            "scripting"
         ]
     }
 }

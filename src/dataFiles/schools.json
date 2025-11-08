@@ -1,6 +1,20 @@
 {
     "schools": [
         {
+            "name": "Fredly folkehøgskole",
+            "type": "folkehøgskole",
+            "from": "2016",
+            "to": "2017",
+            "fordypning": ""
+        },
+        {
+            "name": "Roald Amundsen Videregående skole",
+            "type": "vidergående",
+            "from": "2013",
+            "to": "2016",
+            "fordypning": "Realfag: matte, kjemi, fysikk, og IT"
+        },
+        {
             "name": "Tårnåsen skole",
             "type": "Barneskole",
             "from": "2003",
@@ -12,20 +26,6 @@
             "type": "Ungdomskole",
             "from": "2010",
             "to": "2013",
-            "fordypning": ""
-        },
-        {
-            "name": "Roald Amundsen Videregående skole",
-            "type": "vidergående",
-            "from": "2013",
-            "to": "2016",
-            "fordypning": "Realfag: matte, kjemi, fysikk, og IT"
-        },
-        {
-            "name": "Fredly folkehøgskole",
-            "type": "folkehøgskole",
-            "from": "2016",
-            "to": "2017",
             "fordypning": ""
         }
     ]
