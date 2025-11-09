@@ -17,6 +17,14 @@
         "Django",
         "Kotlin multiplatform"
     ],
+    "database": [
+        "neo4j",
+        "postgres",
+        "mysql",
+        "sglServer",
+        "dynamodb",
+        "cosmosDb"
+    ],
     "clouds": [
         {
             "name": "AWS",
@@ -29,7 +37,9 @@
                 "S3",
                 "ElastiCache",
                 "Aurora/RDS",
-                "Cloudwatch"
+                "Cloudwatch",
+                "ECS",
+                "Batch"
             ]
         },
         {
@@ -44,12 +54,12 @@
             ]
         }
     ],
-    "cicd": [
-        "Gitlab ci",
-        "Github actions"
-    ],
     "iac": [
         "Terraform",
         "Cloud formation"
+    ],
+    "cicd": [
+        "Gitlab ci",
+        "Github actions"
     ]
 }

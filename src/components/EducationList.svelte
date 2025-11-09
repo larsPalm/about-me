@@ -1,6 +1,4 @@
 <script lang="ts">
-    import type { Education } from "../types/education";
-    import type { Thesis } from "../types/thesis";
     import utdanningJson from "../dataFiles/education.json";
     import EducationAccordion from "./EducationAccordion.svelte";
     import type { EducationData } from "../types/educationData";
@@ -12,8 +10,8 @@
     <h1>Utdanning</h1>
     <EducationAccordion education={utdanning.dnb} />
     <EducationAccordion education={utdanning.master} />
-    <EducationAccordion education={utdanning.bachelor} />
     <EducationAccordion education={utdanning.pt} />
+    <EducationAccordion education={utdanning.bachelor} />
 </div>
 
 <style>

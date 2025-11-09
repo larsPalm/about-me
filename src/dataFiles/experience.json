@@ -7,6 +7,9 @@
             "from": "august 2025",
             "to": "dd",
             "current": true,
+            "comments": [
+                "Jobber med infrastruktur i AWS, samt devops, og utvikling"
+            ],
             "remarks": [
                 "devops",
                 "infrastructure",
@@ -20,6 +23,11 @@
             "from": "august 2022",
             "to": "august 2025",
             "current": false,
+            "comments": [
+                "3. året: Payments: Jobbet som solution architect, og var med på deres modernisering til sky, og designet og kodet løsninger som skulle flyttes til sky.",
+                "2. året: Corporate banking (backend): Jobbet 3 måneder med DNB sine nye likviditetsløsning, og 9 måneder med mobilbanken for bedrifter.  I CB jobbet jeg som en solution architect og utvikler.",
+                "1. året: Emerging techonologies. Jobbet der med chatbot-ene til DNB som en software engineer. En av oppgavene var å gjøre chatbot-ene mer GDPR-vennlig"
+            ],
             "remarks": [
                 "software engineer",
                 "Solution architect",
@@ -56,6 +64,9 @@
             "from": "ausust 2021",
             "to": "desember 2021",
             "current": false,
+            "comments": [
+                "Jobben bestod av å holde gruppetimer der ukens pensum ble gjennomgått, og rette de obligatoriske oppgavene i kurset"
+            ],
             "remarks": [
                 "programmering",
                 "python",
@@ -67,10 +78,30 @@
         {
             "company": "UiO",
             "department": "Instititut for informatikk",
+            "role": "Orakel i forkurs i informatikk",
+            "from": "ausust 2021",
+            "to": "august 2021",
+            "current": false,
+            "comments": [
+                "Jobben bestod av å hjelpe nye studenter med oppsett av PC/Mac, og gi introduksjon til linux, samt terminal"
+            ],
+            "remarks": [
+                "programmering",
+                "python",
+                "linux",
+                "unix"
+            ]
+        },
+        {
+            "company": "UiO",
+            "department": "Instititut for informatikk",
             "role": "Gruppelærer i IN1000",
             "from": "januar 2021",
             "to": "juli 2021",
             "current": false,
+            "comments": [
+                "Jobben bestod av å holde gruppetimer der ukens pensum ble gjennomgått, og rette de obligatoriske oppgavene i kurset"
+            ],
             "remarks": [
                 "programmering",
                 "python",
@@ -86,6 +117,9 @@
             "from": "august 2020",
             "to": "desember 2020",
             "current": false,
+            "comments": [
+                "Jobben bestod av å holde gruppetimer der ukens pensum ble gjennomgått, og rette de obligatoriske oppgavene i kurset"
+            ],
             "remarks": [
                 "programmering",
                 "python",
