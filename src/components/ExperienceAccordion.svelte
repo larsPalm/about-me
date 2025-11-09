@@ -3,7 +3,6 @@
 
     export let experience: Experience;
 
-    // local state for this accordion item
     let isOpen = false;
     const toggle = () => (isOpen = !isOpen);
 </script>
