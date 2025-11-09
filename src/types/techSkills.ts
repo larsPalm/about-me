@@ -6,4 +6,5 @@ export interface TechSkills {
     clouds: Cloud[];
     cicd: string[];
     iac: string[];
+    database: string[];
 }

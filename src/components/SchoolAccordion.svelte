@@ -1,6 +1,5 @@
 <script lang="ts">
     import { writable } from "svelte/store";
-    import type { School } from "../types/school";
 
     export let name: string = "";
     export let type: string = "";
@@ -83,10 +82,5 @@
 
     .body div {
         margin: 0.25rem 0;
-    }
-
-    a {
-        color: #1e90ff;
-        text-decoration: underline;
     }
 </style>

@@ -1,9 +1,14 @@
 <script lang="ts">
+	import PdfGenerator from "../components/PdfGenerator.svelte";
 	import ThemeToggle from "../components/ThemeToggle.svelte";
 	export const prerender = true;
 </script>
 
-<ThemeToggle />
+<div class="centered-container">
+	<ThemeToggle />
+	<PdfGenerator />
+</div>
+
 <slot />
 
 <style>
@@ -40,5 +45,13 @@
 		border-radius: 0.5rem;
 		cursor: pointer;
 		margin: 1rem;
+	}
+	.centered-container {
+		display: flex;
+		flex-direction: column; /* stack vertically */
+		align-items: center; /* center horizontally */
+		justify-content: flex-start; /* optional: start from top */
+		gap: 1rem; /* spacing between ThemeToggle and PdfGenerator */
+		padding: 2rem 0;
 	}
 </style>

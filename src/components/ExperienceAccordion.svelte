@@ -3,7 +3,6 @@
 
     export let experience: Experience;
 
-    // local state for this accordion item
     let isOpen = false;
     const toggle = () => (isOpen = !isOpen);
 </script>
@@ -30,6 +29,17 @@
                 : experience.to || "?"}
         </div>
 
+        {#if experience.comments && experience.comments.length > 0}
+            <div class="comments">
+                <strong>Comments:</strong>
+                <ul>
+                    {#each experience.comments as comment}
+                        <li>{comment}</li>
+                    {/each}
+                </ul>
+            </div>
+        {/if}
+
         {#if experience.remarks.length > 0}
             <div class="remarks">
                 <strong>Remarks:</strong>
@@ -47,8 +57,10 @@
 
 <style>
     .accordion-item {
-        width: 100%;
-        margin: 0;
+        display: block; /* standard block so it stacks vertically */
+        width: 100%; /* allows inner container to control size */
+        max-width: 500px; /* all accordions will be this width */
+        margin: 0.5rem auto; /* center horizontally */
         padding: 0.8rem;
         border-radius: 1rem;
         border: 1px solid var(--text-color);
