@@ -10,6 +10,11 @@
     import experienceJson from "../dataFiles/experience.json";
     import personalJson from "../dataFiles/contactInfo.json";
 
+    import { t } from "../stores/i18n";
+    import { get } from "svelte/store";
+
+    const tr = get(t);
+
     pdfMake.vfs = pdfFonts.vfs;
 
     const generatePDF = () => {
@@ -43,7 +48,7 @@
                 },
 
                 // === EXPERIENCE ===
-                { text: "Arbeidserfaring", style: "sectionHeader" },
+                { text: tr.pdfExperience, style: "sectionHeader" },
                 ...experiences.map((exp: any) => {
                     const remarksText = exp.remarks?.length
                         ? exp.remarks.join(", ")
@@ -74,7 +79,7 @@
                 }),
 
                 // === EDUCATION ===
-                { text: "Utdanning", style: "sectionHeader" },
+                { text: tr.pdfEducation, style: "sectionHeader" },
                 ...educationEntries.map((edu: any) => ({
                     stack: [
                         {
@@ -109,7 +114,7 @@
                 })),
 
                 // === SCHOOLS ===
-                { text: "Skoler", style: "sectionHeader" },
+                { text: tr.pdfSchool, style: "sectionHeader" },
                 {
                     text: schoolsJson.schools
                         .map(
@@ -121,7 +126,7 @@
                 },
 
                 // === LANGUAGES ===
-                { text: "Språk", style: "sectionHeader" },
+                { text: tr.pdfLang, style: "sectionHeader" },
                 {
                     text: langJson
                         .map((lang) => `${lang.name}: ${lang.level}`)
@@ -130,11 +135,11 @@
                 },
 
                 // === OTHER COMPETENCE ===
-                { text: "Annen kompetanse", style: "sectionHeader" },
+                { text: tr.pdfOtherComp, style: "sectionHeader" },
                 { text: kompetanse.join(", "), margin: [0, 0, 0, 10] },
 
                 // === TECHNICAL SKILLS ===
-                { text: "Tekniske ferdigheter", style: "sectionHeader" },
+                { text: tr.pdfSkills, style: "sectionHeader" },
                 {
                     columns: [
                         [
@@ -163,7 +168,7 @@
                 },
 
                 // === CLOUDS ===
-                { text: "Skyplattformer", style: "sectionHeader" },
+                { text: tr.pdfCloud, style: "sectionHeader" },
                 {
                     columns: techStack.clouds.map((cloud: any) => ({
                         stack: [
@@ -203,7 +208,7 @@
     };
 </script>
 
-<button on:click={generatePDF} class="pdf-btn">📄 Last ned PDF</button>
+<button on:click={generatePDF} class="pdf-btn">📄 {$t.pdfButton}</button>
 
 <style>
     .pdf-btn {

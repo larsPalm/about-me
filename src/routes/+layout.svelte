@@ -1,10 +1,12 @@
 <script lang="ts">
+	import LangToggle from "../components/LangToggle.svelte";
 	import PdfGenerator from "../components/PdfGenerator.svelte";
 	import ThemeToggle from "../components/ThemeToggle.svelte";
 	export const prerender = true;
 </script>
 
 <div class="centered-container">
+	<LangToggle />
 	<ThemeToggle />
 	<PdfGenerator />
 </div>

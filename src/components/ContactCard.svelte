@@ -1,5 +1,6 @@
 <script lang="ts">
     import { writable } from "svelte/store";
+    import { t } from "../stores/i18n";
 
     export let name: string = "John Doe";
     export let email: string = "john.doe@example.com";
@@ -15,14 +16,14 @@
 
 <div class="card">
     <div class="header" on:click={toggle}>
-        <span>Contact Info</span>
+        <span>{$t.contact}</span>
         <span>{$isOpen ? "▲" : "▼"}</span>
     </div>
 
     <div class="body" class:hidden={!$isOpen} class:visible={$isOpen}>
-        <div class="info-row"><strong>Name:</strong> {name}</div>
+        <div class="info-row"><strong>{$t.name}:</strong> {name}</div>
         <div class="info-row">
-            <strong>Email:</strong>
+            <strong>{$t.email}:</strong>
             <a
                 href={"mailto:" + email}
                 style="color: {linkColor}; text-decoration: underline;"
@@ -54,7 +55,7 @@
                 </a>
             </div>
         {/if}
-        <div class="info-row"><strong>Phone:</strong> {phone}</div>
+        <div class="info-row"><strong>{$t.phone}:</strong> {phone}</div>
     </div>
 </div>
 
