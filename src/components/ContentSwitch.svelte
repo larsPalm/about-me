@@ -10,12 +10,11 @@
     // reactive translation
     $: tr = $t;
 
-    // reactive tabs array
-    $: tabs = [tr.education, tr.experience, tr.achievements, tr.pdfSkills];
-
+    // initialize tabs and activeTab
+    let tabs: string[] = [];
     const activeTab = writable("");
 
-    // build tabs **only when tr is defined**
+    // update tabs whenever tr changes
     $: if (tr) {
         const newTabs = [
             tr.education,
@@ -23,12 +22,19 @@
             tr.achievements,
             tr.pdfSkills,
         ];
+
+        // get current active tab index in old tabs
+        let currentIndex = tabs.indexOf($activeTab);
+
+        // update tabs
         tabs = newTabs;
 
-        // if activeTab is not in newTabs, reset it
-        activeTab.update((current) =>
-            newTabs.includes(current) ? current : newTabs[0],
-        );
+        // if currentIndex valid, keep same logical tab, else default to first
+        if (currentIndex >= 0 && currentIndex < newTabs.length) {
+            activeTab.set(newTabs[currentIndex]);
+        } else {
+            activeTab.set(newTabs[0]);
+        }
     }
 
     const setTab = (tab: string) => {
