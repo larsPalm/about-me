@@ -1,10 +1,12 @@
 <script>
     import SchoolAccordion from "./SchoolAccordion.svelte";
     import schoolJson from "../dataFiles/schools.json";
+
+    import { t } from "../stores/i18n";
 </script>
 
 <div class="school-container">
-    <h1>Skoler</h1>
+    <h1>{$t.school}</h1>
     {#each schoolJson.schools as school}
         <SchoolAccordion
             name={String(school.name)}

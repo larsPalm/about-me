@@ -3,6 +3,7 @@
     import type { Language } from "../types/language";
     import langJson from "../dataFiles/language.json";
     import kompetanse from "../dataFiles/kompetanse.json";
+    import { t } from "../stores/i18n";
 
     export let languages: Language[] = langJson;
     export let achievements: string[] = kompetanse;
@@ -17,7 +18,7 @@
 <div class="accordion-wrapper">
     <div class="accordion-item">
         <div class="header" on:click={toggleLang}>
-            <span>Languages</span>
+            <span>{$t.lang}</span>
             <span>{$langOpen ? "▲" : "▼"}</span>
         </div>
         <div class="body" class:hidden={!$langOpen} class:visible={$langOpen}>
@@ -31,7 +32,7 @@
 
     <div class="accordion-item">
         <div class="header" on:click={toggleAch}>
-            <span>Achievements</span>
+            <span>{$t.achievements}</span>
             <span>{$achOpen ? "▲" : "▼"}</span>
         </div>
         <div class="body" class:hidden={!$achOpen} class:visible={$achOpen}>

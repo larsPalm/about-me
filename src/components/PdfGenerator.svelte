@@ -11,9 +11,8 @@
     import personalJson from "../dataFiles/contactInfo.json";
 
     import { t } from "../stores/i18n";
-    import { get } from "svelte/store";
 
-    const tr = get(t);
+    $: tr = $t;
 
     pdfMake.vfs = pdfFonts.vfs;
 
@@ -90,22 +89,22 @@
                             text: `${edu.school} (${edu.from} – ${edu.to})`,
                             margin: [0, 0, 0, 3],
                         },
-                        { text: `Karakter: ${edu.grade || "-"}` },
+                        { text: `${tr.grade}: ${edu.grade || "-"}` },
                         edu.subjects?.length
                             ? {
-                                  text: `Temaer av interesse: ${edu.subjects.join(", ")}`,
+                                  text: `${tr.topics}: ${edu.subjects.join(", ")}`,
                                   margin: [0, 0, 0, 3],
                               }
                             : undefined,
                         edu.thesis
                             ? {
-                                  text: `Masteroppgave: ${edu.thesis.name} – ${edu.thesis.subTitle}`,
+                                  text: `${tr.pdfThesis}: ${edu.thesis.name} – ${edu.thesis.subTitle}`,
                                   italics: true,
                               }
                             : undefined,
                         edu.thesis?.topics?.length
                             ? {
-                                  text: `Temaer: ${edu.thesis.topics.join(", ")}`,
+                                  text: `${tr.pdfTopic}: ${edu.thesis.topics.join(", ")}`,
                                   margin: [0, 0, 0, 6],
                               }
                             : undefined,
@@ -119,7 +118,7 @@
                     text: schoolsJson.schools
                         .map(
                             (s: any) =>
-                                `${s.name} (${s.type}) — ${s.from}–${s.to}${s.fordypning ? `, Fordypning: ${s.fordypning}` : ""}`,
+                                `${s.name} (${s.type}) — ${s.from}–${s.to}${s.fordypning ? ` \n ${tr.pdfFordypning}: ${s.fordypning}` : ""}`,
                         )
                         .join("\n"),
                     margin: [0, 0, 0, 10],
@@ -135,8 +134,14 @@
                 },
 
                 // === OTHER COMPETENCE ===
-                { text: tr.pdfOtherComp, style: "sectionHeader" },
-                { text: kompetanse.join(", "), margin: [0, 0, 0, 10] },
+                {
+                    text: tr.pdfOtherComp,
+                    style: "sectionHeader",
+                },
+                {
+                    ul: kompetanse,
+                    margin: [0, 0, 0, 10],
+                },
 
                 // === TECHNICAL SKILLS ===
                 { text: tr.pdfSkills, style: "sectionHeader" },

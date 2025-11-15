@@ -5,8 +5,31 @@
     import Competance from "./Competance.svelte";
     import TechPreferance from "./TechPreferance.svelte";
 
-    const tabs = ["Utdanning", "Erfaring", "Kompetanse", "Ferdigheter"];
-    const activeTab = writable(tabs[1]);
+    import { t } from "../stores/i18n";
+
+    // reactive translation
+    $: tr = $t;
+
+    // reactive tabs array
+    $: tabs = [tr.education, tr.experience, tr.achievements, tr.pdfSkills];
+
+    const activeTab = writable("");
+
+    // build tabs **only when tr is defined**
+    $: if (tr) {
+        const newTabs = [
+            tr.education,
+            tr.experience,
+            tr.achievements,
+            tr.pdfSkills,
+        ];
+        tabs = newTabs;
+
+        // if activeTab is not in newTabs, reset it
+        activeTab.update((current) =>
+            newTabs.includes(current) ? current : newTabs[0],
+        );
+    }
 
     const setTab = (tab: string) => {
         activeTab.set(tab);
@@ -26,13 +49,13 @@
     </div>
 
     <div class="tab-content">
-        {#if $activeTab === "Utdanning"}
+        {#if $activeTab === tr.education}
             <EducationDisplay />
-        {:else if $activeTab === "Erfaring"}
+        {:else if $activeTab === tr.experience}
             <ExperienceList />
-        {:else if $activeTab === "Ferdigheter"}
+        {:else if $activeTab === tr.pdfSkills}
             <TechPreferance />
-        {:else if $activeTab === "Kompetanse"}
+        {:else if $activeTab === tr.achievements}
             <Competance />
         {/if}
     </div>

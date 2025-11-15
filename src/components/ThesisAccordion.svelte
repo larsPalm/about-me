@@ -1,6 +1,7 @@
 <script lang="ts">
     import { writable } from "svelte/store";
     import type { Thesis } from "../types/thesis";
+    import { t } from "../stores/i18n";
 
     export let thesis: Thesis;
 
@@ -16,11 +17,11 @@
 
     <div class="body" class:hidden={!$isOpen} class:visible={$isOpen}>
         {#if thesis.subTitle}
-            <div><strong>Subtitle:</strong> {thesis.subTitle}</div>
+            <div><strong>{$t.subTitle}:</strong> {thesis.subTitle}</div>
         {/if}
 
         {#if thesis.topics && thesis.topics.length > 0}
-            <div><strong>Topics:</strong></div>
+            <div><strong>{$t.topics}:</strong></div>
             <ul>
                 {#each thesis.topics as topic}
                     <li>{topic}</li>

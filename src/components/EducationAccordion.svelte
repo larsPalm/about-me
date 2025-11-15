@@ -2,6 +2,7 @@
     import { writable } from "svelte/store";
     import ThesisAccordion from "./ThesisAccordion.svelte";
     import type { Education } from "../types/education";
+    import { t } from "../stores/i18n";
 
     export let education: Education;
 
@@ -17,7 +18,7 @@
 
     <div class="body" class:hidden={!$isOpen} class:visible={$isOpen}>
         {#if education.school}
-            <div><strong>School:</strong> {education.school}</div>
+            <div><strong>{$t.uniSchool}:</strong> {education.school}</div>
         {/if}
 
         {#if education.type}
@@ -26,18 +27,18 @@
 
         {#if education.from || education.to}
             <div>
-                <strong>Years:</strong>
+                <strong>{$t.years}:</strong>
                 {education.from} – {education.to}
             </div>
         {/if}
 
         {#if education.grade}
-            <div><strong>Grade:</strong> {education.grade}</div>
+            <div><strong>{$t.grade}:</strong> {education.grade}</div>
         {/if}
 
         {#if education.subjects && education.subjects.length > 0}
             <div>
-                <strong>Subjects:</strong>
+                <strong>{$t.subject}:</strong>
                 <ul>
                     {#each education.subjects as subject}
                         <li>{subject}</li>

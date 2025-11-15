@@ -1,5 +1,6 @@
 <script lang="ts">
     import { writable } from "svelte/store";
+    import { t } from "../stores/i18n";
 
     export let name: string = "";
     export let type: string = "";
@@ -19,10 +20,10 @@
 
     <div class="body" class:hidden={!$isOpen} class:visible={$isOpen}>
         {#if type}<div><strong>Type:</strong> {type}</div>{/if}
-        {#if from}<div><strong>From:</strong> {from}</div>{/if}
-        {#if to}<div><strong>To:</strong> {to}</div>{/if}
+        {#if from}<div><strong>{$t.from}:</strong> {from}</div>{/if}
+        {#if to}<div><strong>{$t.to}:</strong> {to}</div>{/if}
         {#if fordypning}<div>
-                <strong>Fordypning:</strong>
+                <strong>{$t.pdfFordypning}:</strong>
                 {fordypning}
             </div>{/if}
     </div>

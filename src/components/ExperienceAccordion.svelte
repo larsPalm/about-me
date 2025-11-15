@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Experience } from "../types/experience";
+    import { t } from "../stores/i18n";
 
     export let experience: Experience;
 
@@ -15,15 +16,15 @@
 
     <div class="body" class:hidden={!isOpen} class:visible={isOpen}>
         {#if experience.department}
-            <div><strong>Department:</strong> {experience.department}</div>
+            <div><strong>{$t.department}:</strong> {experience.department}</div>
         {/if}
 
         {#if experience.role}
-            <div><strong>Role:</strong> {experience.role}</div>
+            <div><strong>{$t.role}:</strong> {experience.role}</div>
         {/if}
 
         <div>
-            <strong>Period:</strong>
+            <strong>{$t.period}:</strong>
             {experience.from || "?"} – {experience.current
                 ? "Present"
                 : experience.to || "?"}
@@ -31,7 +32,7 @@
 
         {#if experience.comments && experience.comments.length > 0}
             <div class="comments">
-                <strong>Comments:</strong>
+                <strong>{$t.comments}:</strong>
                 <ul>
                     {#each experience.comments as comment}
                         <li>{comment}</li>
@@ -42,7 +43,7 @@
 
         {#if experience.remarks.length > 0}
             <div class="remarks">
-                <strong>Remarks:</strong>
+                <strong>{$t.remarks}:</strong>
                 <ul>
                     {#each experience.remarks as remark}
                         <li>{remark}</li>
@@ -50,7 +51,7 @@
                 </ul>
             </div>
         {:else}
-            <div class="remarks"><em>No remarks</em></div>
+            <div class="remarks"><em>{$t.noRemarks}</em></div>
         {/if}
     </div>
 </div>

@@ -2,12 +2,13 @@
     import utdanningJson from "../dataFiles/education.json";
     import EducationAccordion from "./EducationAccordion.svelte";
     import type { EducationData } from "../types/educationData";
+    import { t } from "../stores/i18n";
 
     const utdanning: EducationData = utdanningJson;
 </script>
 
 <div class="school-container">
-    <h1>Høyere utdanning</h1>
+    <h1>{$t.education}</h1>
     <EducationAccordion education={utdanning.dnb} />
     <EducationAccordion education={utdanning.master} />
     <EducationAccordion education={utdanning.pt} />
