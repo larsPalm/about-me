@@ -1,6 +1,7 @@
 {
     "programming": [
         "Kotlin",
+        "Python",
         "Java",
         "Typescript",
         "Javascript",
@@ -9,13 +10,15 @@
         "C"
     ],
     "framework": [
-        "spring",
-        "micronaut",
+        "Fastapi",
+        "Spring",
+        "Micronaut",
         "Node",
-        "React",
         "Svelte",
-        "Django",
-        "Kotlin multiplatform"
+        "Kotlin multiplatform",
+        "Express",
+        "React",
+        "Django"
     ],
     "database": [
         "neo4j",
@@ -23,7 +26,8 @@
         "mysql",
         "sglServer",
         "dynamodb",
-        "cosmosDb"
+        "cosmosDb",
+        "sqlite"
     ],
     "clouds": [
         {

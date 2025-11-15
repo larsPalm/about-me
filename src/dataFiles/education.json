@@ -28,7 +28,8 @@
             "data stream",
             "complex event processing",
             "IoT",
-            "security by design"
+            "security by design",
+            "smidig arbeid, og prosess-/team-forbedringer"
         ],
         "thesis": {
             "name": "The Cesar Framework",
@@ -76,8 +77,11 @@
             "algoritmer",
             "datastrukturer",
             "smidig utvikling",
+            "teamarbeid",
             "apputvikling",
-            "scripting"
+            "scripting",
+            "logiske metoder",
+            "parallell databehandling"
         ]
     }
 }

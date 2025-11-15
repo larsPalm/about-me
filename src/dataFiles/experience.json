@@ -8,12 +8,12 @@
             "to": "dd",
             "current": true,
             "comments": [
-                "Jobber med infrastruktur i AWS, samt devops, og utvikling"
+                "Jobber med infrastruktur i AWS, samt devops, og utvikling. Teamet driver med leveringer av ulike Camt-rapporter"
             ],
             "remarks": [
                 "devops",
-                "infrastructure",
-                "aws"
+                "Infrastructure",
+                "AWS"
             ]
         },
         {
@@ -26,10 +26,10 @@
             "comments": [
                 "3. året: Payments: Jobbet som solution architect, og var med på deres modernisering til sky, og designet og kodet løsninger som skulle flyttes til sky.",
                 "2. året: Corporate banking (backend): Jobbet 3 måneder med DNB sine nye likviditetsløsning, og 9 måneder med mobilbanken for bedrifter.  I CB jobbet jeg som en solution architect og utvikler.",
-                "1. året: Emerging techonologies. Jobbet der med chatbot-ene til DNB som en software engineer. En av oppgavene var å gjøre chatbot-ene mer GDPR-vennlig"
+                "1. året: Emerging techonologies. Jobbet der med chatbot-ene til DNB som en software engineer. En av oppgavene var å gjøre chatbot-ene mer GDPR-vennlig."
             ],
             "remarks": [
-                "software engineer",
+                "Software engineer",
                 "Solution architect",
                 "devops",
                 "corporate banking",
@@ -38,23 +38,9 @@
                 "Azure",
                 "UiO",
                 "Graduate",
-                "liquidity",
-                "mobile corporate app",
-                "chatbots"
-            ]
-        },
-        {
-            "company": "Famme",
-            "department": "",
-            "role": "Utvikler, internship",
-            "from": "juni 2021",
-            "to": "august 2021",
-            "current": false,
-            "remarks": [
-                "ecommerce",
-                "python",
-                "database",
-                "web scraping"
+                "Liquidity",
+                "Mobile corporate app",
+                "Chatbots"
             ]
         },
         {
@@ -90,6 +76,21 @@
                 "python",
                 "linux",
                 "unix"
+            ]
+        },
+        {
+            "company": "Famme",
+            "department": "",
+            "role": "Utvikler, internship",
+            "from": "juni 2021",
+            "to": "august 2021",
+            "current": false,
+            "remarks": [
+                "Sommerjobb",
+                "ecommerce",
+                "python",
+                "database",
+                "web scraping"
             ]
         },
         {
@@ -131,7 +132,7 @@
         {
             "company": "Oppegård kommune",
             "department": "resursbanken",
-            "role": "tilkallingsvikar‹",
+            "role": "Tilkallingsvikar",
             "from": "mai 2017",
             "to": "desember 2017",
             "current": false,
