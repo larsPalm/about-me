@@ -5,7 +5,7 @@
     import Competance from "./Competance.svelte";
     import TechPreferance from "./TechPreferance.svelte";
 
-    const tabs = ["Utdanning", "Erfaring", "Kompetanse", "Faglig interesser"];
+    const tabs = ["Utdanning", "Erfaring", "Kompetanse", "Ferdigheter"];
     const activeTab = writable(tabs[1]);
 
     const setTab = (tab: string) => {
@@ -30,7 +30,7 @@
             <EducationDisplay />
         {:else if $activeTab === "Erfaring"}
             <ExperienceList />
-        {:else if $activeTab === "Faglig interesser"}
+        {:else if $activeTab === "Ferdigheter"}
             <TechPreferance />
         {:else if $activeTab === "Kompetanse"}
             <Competance />

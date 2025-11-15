@@ -7,7 +7,7 @@
 </script>
 
 <div class="school-container">
-    <h1>Utdanning</h1>
+    <h1>Høyere utdanning</h1>
     <EducationAccordion education={utdanning.dnb} />
     <EducationAccordion education={utdanning.master} />
     <EducationAccordion education={utdanning.pt} />
