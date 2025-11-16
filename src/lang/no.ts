@@ -39,4 +39,6 @@ export const no = {
     achievements: "Kompetanse",
     /* knapper */
     experience: "Erfaring",
+    /* other */
+    other: "Annet"
 };

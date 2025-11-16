@@ -65,5 +65,12 @@
     "cicd": [
         "Gitlab ci",
         "Github actions"
+    ],
+    "other": [
+        "Docker",
+        "Kafka",
+        "Grafana",
+        "Promethious",
+        "OpenTelemetry"
     ]
 }

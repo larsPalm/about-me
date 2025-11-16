@@ -39,4 +39,6 @@ export const en = {
     achievements: "Achievements",
     /* knapper */
     experience: "Experience",
+    /* other */
+    other: "Other"
 };
