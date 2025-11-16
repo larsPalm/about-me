@@ -114,13 +114,25 @@
 
                 // === SCHOOLS ===
                 { text: tr.pdfSchool, style: "sectionHeader" },
+
                 {
-                    text: schoolsJson.schools
-                        .map(
-                            (s: any) =>
-                                `${s.name} (${s.type}) — ${s.from}–${s.to}${s.fordypning ? ` \n ${tr.pdfFordypning}: ${s.fordypning}` : ""}`,
-                        )
-                        .join("\n"),
+                    stack: schoolsJson.schools.map((s: any) => {
+                        const baseLine = `${s.name} (${s.type}) — ${s.from}–${s.to}`;
+
+                        const fordypningLine = s.fordypning
+                            ? {
+                                  text: `${tr.pdfFordypning}: ${s.fordypning}`,
+                                  margin: [20, 2, 0, 4], // ← INDENT HERE
+                              }
+                            : null;
+
+                        return {
+                            stack: [{ text: baseLine }, fordypningLine].filter(
+                                Boolean,
+                            ),
+                            margin: [0, 0, 0, 6],
+                        };
+                    }),
                     margin: [0, 0, 0, 10],
                 },
 
