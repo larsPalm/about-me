@@ -2,6 +2,7 @@
     import ContactCard from "../components/ContactCard.svelte";
     import ContentSwitch from "../components/ContentSwitch.svelte";
     import contact from "../dataFiles/contactInfo.json";
+    import { base } from "$app/paths";
     export const prerender = true;
 </script>
 
@@ -42,7 +43,7 @@
                 LinkedIn={contact.linkedin}
             />
             <div class="contact-image">
-                <img src="/profilebilde.png" alt="Profile picture" />
+                <img src="{base}/profilebilde.png" alt="Profile picture" />
             </div>
         </div>
     </div>
