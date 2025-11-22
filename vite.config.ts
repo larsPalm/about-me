@@ -3,5 +3,5 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	base: '/about-me/'
+	base: '/about-me/docs/'
 });
