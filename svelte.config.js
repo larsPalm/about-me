@@ -15,7 +15,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths: {
-			base: dev ? '' : '/about-me' // ✅ Only add base path in production
+			base: '/about-me' // ✅ Only add base path in production
 		},
 		prerender: {
 			entries: ['*']
