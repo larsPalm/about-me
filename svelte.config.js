@@ -12,7 +12,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths: {
-			base: '/about-me/docs'
+			base: '/about-me'
 		},
 		prerender: {
 			entries: ['*']
