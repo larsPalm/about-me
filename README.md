@@ -1,6 +1,10 @@
 # About me
 Hvem er jeg, og hva er mine interesser? Hva har jeg av utdanning, erfaring, osv?
 
+## VIKTIG.
+
+/docs trenger en `.nojekyll` fil, den skal være tom
+
 ## Stuktur
 Hvordan ui er bygget opp
 
