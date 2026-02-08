@@ -13,6 +13,7 @@
     <SkillAccordion title="Clouds" list={skills.clouds} />
     <SkillAccordion title="Database" list={skills.database} />
     <SkillAccordion title="IaC" list={skills.iac} />
+    <SkillAccordion title="Observability" list={skills.observability} />
     <SkillAccordion title="CI/CD" list={skills.cicd} />
     <SkillAccordion title={$t.other} list={skills.other} />
 </div>

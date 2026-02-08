@@ -7,4 +7,6 @@ export interface TechSkills {
     cicd: string[];
     iac: string[];
     database: string[];
+    other: string[];
+    observability: string[];
 }

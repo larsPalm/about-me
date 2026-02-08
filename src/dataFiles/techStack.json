@@ -13,6 +13,7 @@
         "Fastapi",
         "Spring",
         "Micronaut",
+        "Fastify",
         "Node",
         "Svelte",
         "Kotlin multiplatform",
@@ -66,11 +67,14 @@
         "Gitlab ci",
         "Github actions"
     ],
-    "other": [
-        "Docker",
-        "Kafka",
+    "observability": [
         "Grafana",
         "Promethious",
         "OpenTelemetry"
+    ],
+    "other": [
+        "Docker",
+        "Kafka",
+        "Apache Flink"
     ]
 }
