@@ -41,5 +41,5 @@ export const en = {
     experience: "Experience",
     /* other */
     other: "Other",
-    accomplishments: "accomplishments"
+    accomplishments: "Accomplishments"
 };
