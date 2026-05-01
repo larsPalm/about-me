@@ -30,7 +30,18 @@
                 : experience.to || "?"}
         </div>
 
-        {#if experience.comments && experience.comments.length > 0}
+        {#if experience.acomplishments?.length}
+            <div class="accomplishments">
+                <strong>{$t.accomplishments}:</strong>
+                <ul>
+                    {#each experience.acomplishments as item}
+                        <li>{item}</li>
+                    {/each}
+                </ul>
+            </div>
+        {/if}
+
+        {#if experience.comments?.length}
             <div class="comments">
                 <strong>{$t.comments}:</strong>
                 <ul>
@@ -41,7 +52,7 @@
             </div>
         {/if}
 
-        {#if experience.remarks.length > 0}
+        {#if experience.remarks?.length}
             <div class="remarks">
                 <strong>{$t.remarks}:</strong>
                 <ul>

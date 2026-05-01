@@ -2,6 +2,8 @@
     import pdfMake from "pdfmake/build/pdfmake.js";
     import pdfFonts from "pdfmake/build/vfs_fonts.js";
 
+    import type { Experience } from "../types/experience";
+
     import langJson from "../dataFiles/language.json";
     import kompetanse from "../dataFiles/kompetanse.json";
     import techStack from "../dataFiles/techStack.json";
@@ -18,63 +20,83 @@
 
     const generatePDF = () => {
         const educationEntries = Object.values(educationJson);
-        const experiences = experienceJson.erfaring;
+        const experiences: Experience[] = experienceJson.erfaring;
 
         const docDefinition = {
             info: {
                 title: "CV – Lars Palm",
                 author: personalJson.name,
-                ai_profile: JSON.stringify({
-                    aiOnly: true,
-                    description: "Extended AI metadata for automated parsing.",
-                    strengths: [
-                        "Cloud Architecture",
-                        "DevOps Automation",
-                        "Fullstack Development",
-                        "SvelteKit",
-                    ],
-                }),
             },
 
             content: [
                 { text: personalJson.name, style: "header" },
                 {
-                    text: `${personalJson.email} | ${personalJson.phone}\nGitHub: ${personalJson.github}\nLinkedIn: ${personalJson.linkedin}`,
+                    text: `${personalJson.email} | ${personalJson.phone}
+GitHub: ${personalJson.github}
+LinkedIn: ${personalJson.linkedin}`,
                     style: "personalInfo",
                     margin: [0, 0, 0, 10],
                 },
 
                 { text: tr.pdfExperience, style: "sectionHeader" },
-                ...experiences.map((exp: any) => {
-                    const remarksText = exp.remarks?.length
-                        ? exp.remarks.join(", ")
-                        : undefined;
-                    const commentsList = exp.comments?.length
-                        ? exp.comments.map((c: string) => `• ${c}`).join("\n")
-                        : undefined;
 
-                    return {
-                        stack: [
-                            {
-                                text: `${exp.role} — ${exp.company}`,
-                                style: "subHeader",
-                            },
-                            {
-                                text: `${exp.department ? exp.department + ", " : ""}${exp.from} – ${exp.current ? "Present" : exp.to}`,
-                                margin: [0, 0, 0, 3],
-                            },
-                            commentsList
-                                ? { text: commentsList, margin: [10, 0, 0, 3] }
-                                : undefined,
-                            remarksText
-                                ? { text: remarksText, margin: [10, 0, 0, 6] }
-                                : undefined,
-                        ].filter(Boolean),
-                        margin: [0, 2, 0, 4],
-                    };
-                }),
+                ...experiences.map((exp: Experience) => ({
+                    stack: [
+                        {
+                            text: `${exp.role} — ${exp.company}`,
+                            style: "subHeader",
+                        },
+                        {
+                            text: `${exp.department ? exp.department + ", " : ""}${exp.from} – ${exp.current ? "Present" : exp.to}`,
+                            margin: [0, 0, 0, 4],
+                        },
+
+                        exp.acomplishments?.length
+                            ? {
+                                  stack: [
+                                      { text: tr.accomplishments, bold: true },
+                                      {
+                                          text: exp.acomplishments
+                                              .map((a) => `• ${a}`)
+                                              .join("\n"),
+                                          margin: [10, 0, 0, 4],
+                                      },
+                                  ],
+                              }
+                            : undefined,
+
+                        exp.comments?.length
+                            ? {
+                                  stack: [
+                                      { text: tr.comments, bold: true },
+                                      {
+                                          text: exp.comments
+                                              .map((c) => `• ${c}`)
+                                              .join("\n"),
+                                          margin: [10, 0, 0, 4],
+                                      },
+                                  ],
+                              }
+                            : undefined,
+
+                        exp.remarks?.length
+                            ? {
+                                  stack: [
+                                      { text: tr.remarks, bold: true },
+                                      {
+                                          text: exp.remarks.join(", "),
+                                          italics: true,
+                                          margin: [10, 0, 0, 6],
+                                      },
+                                  ],
+                              }
+                            : undefined,
+                    ].filter(Boolean),
+                    margin: [0, 2, 0, 6],
+                })),
 
                 { text: tr.pdfEducation, style: "sectionHeader" },
+
                 ...educationEntries.map((edu: any) => ({
                     stack: [
                         {
@@ -86,18 +108,21 @@
                             margin: [0, 0, 0, 3],
                         },
                         { text: `${tr.grade}: ${edu.grade || "-"}` },
+
                         edu.subjects?.length
                             ? {
                                   text: `${tr.topics}: ${edu.subjects.join(", ")}`,
                                   margin: [0, 0, 0, 3],
                               }
                             : undefined,
+
                         edu.thesis
                             ? {
                                   text: `${tr.pdfThesis}: ${edu.thesis.name} – ${edu.thesis.subTitle}`,
                                   italics: true,
                               }
                             : undefined,
+
                         edu.thesis?.topics?.length
                             ? {
                                   text: `${tr.pdfTopic}: ${edu.thesis.topics.join(", ")}`,
@@ -109,55 +134,78 @@
                 })),
 
                 { text: tr.pdfSchool, style: "sectionHeader" },
-                {
-                    stack: schoolsJson.schools.map((s: any) => {
-                        const baseLine = `${s.name} (${s.type}) — ${s.from}–${s.to}`;
-                        const fordypningLine = s.fordypning
-                            ? {
-                                  text: `${tr.pdfFordypning}: ${s.fordypning}`,
-                                  margin: [20, 2, 0, 4],
-                              }
-                            : null;
 
-                        return {
-                            stack: [{ text: baseLine }, fordypningLine].filter(
-                                Boolean,
-                            ),
-                            margin: [0, 0, 0, 6],
-                        };
-                    }),
+                {
+                    stack: schoolsJson.schools.map((s: any) => ({
+                        stack: [
+                            {
+                                text: `${s.name} (${s.type}) — ${s.from}–${s.to}`,
+                            },
+                            s.fordypning
+                                ? {
+                                      text: `${tr.pdfFordypning}: ${s.fordypning}`,
+                                      margin: [20, 2, 0, 4],
+                                  }
+                                : undefined,
+                        ].filter(Boolean),
+                        margin: [0, 0, 0, 6],
+                    })),
                     margin: [0, 0, 0, 10],
                 },
 
-                { text: tr.pdfLang, style: "sectionHeader" },
+                // ✅ Språk + Kompetanse side om side
                 {
-                    text: langJson
-                        .map((lang) => `${lang.name}: ${lang.level}`)
-                        .join("\n"),
-                    margin: [0, 0, 0, 10],
-                },
-
-                { text: tr.pdfOtherComp, style: "sectionHeader" },
-                {
-                    ul: kompetanse,
+                    columns: [
+                        {
+                            width: "*",
+                            stack: [
+                                { text: tr.pdfLang, style: "sectionHeader" },
+                                {
+                                    ul: langJson.map(
+                                        (l) => `${l.name}: ${l.level}`,
+                                    ),
+                                },
+                            ],
+                        },
+                        {
+                            width: "*",
+                            stack: [
+                                {
+                                    text: tr.pdfOtherComp,
+                                    style: "sectionHeader",
+                                },
+                                { ul: kompetanse },
+                            ],
+                        },
+                    ],
+                    columnGap: 20,
                     margin: [0, 0, 0, 10],
                 },
 
                 { text: tr.pdfSkills, style: "sectionHeader" },
+
+                // ✅ 4 kolonner
                 {
                     columns: [
                         {
+                            width: "*",
                             stack: [
                                 { text: "Programmering", bold: true },
                                 { ul: techStack.programming },
-
-                                {
-                                    text: "Database",
-                                    bold: true,
-                                    margin: [0, 6, 0, 0],
-                                },
+                            ],
+                        },
+                        {
+                            width: "*",
+                            stack: [
+                                { text: "Frameworks", bold: true },
+                                { ul: techStack.framework },
+                            ],
+                        },
+                        {
+                            width: "*",
+                            stack: [
+                                { text: "Database", bold: true },
                                 { ul: techStack.database },
-
                                 {
                                     text: "CI/CD",
                                     bold: true,
@@ -167,22 +215,16 @@
                             ],
                         },
                         {
+                            width: "*",
                             stack: [
-                                {
-                                    text: "Frameworks",
-                                    bold: true,
-                                    margin: [0, 6, 0, 0],
-                                },
-                                { ul: techStack.framework },
-                                {
-                                    text: "IaC",
-                                    bold: true,
-                                    margin: [0, 6, 0, 0],
-                                },
+                                { text: "IaC", bold: true },
                                 { ul: techStack.iac },
-                                { text: "Observability", bold: true },
+                                {
+                                    text: "Observability",
+                                    bold: true,
+                                    margin: [0, 6, 0, 0],
+                                },
                                 { ul: techStack.observability },
-
                                 {
                                     text: "Other",
                                     bold: true,
@@ -192,11 +234,12 @@
                             ],
                         },
                     ],
-                    columnGap: 30,
+                    columnGap: 15,
                     margin: [0, 0, 0, 10],
                 },
 
                 { text: tr.pdfCloud, style: "sectionHeader" },
+
                 {
                     columns: techStack.clouds.map((cloud: any) => ({
                         stack: [
@@ -224,17 +267,18 @@
                 sectionHeader: {
                     fontSize: 15,
                     bold: true,
-                    color: "#222",
                     margin: [0, 10, 0, 5],
                 },
                 subHeader: {
                     fontSize: 12,
                     bold: true,
-                    margin: [0, 2, 0, 2],
                 },
             },
 
-            defaultStyle: { fontSize: 10, lineHeight: 1.3 },
+            defaultStyle: {
+                fontSize: 10,
+                lineHeight: 1.3,
+            },
         };
 
         pdfMake.createPdf(docDefinition).download("CV_LarsPalm.pdf");
@@ -256,8 +300,7 @@
         font-weight: bold;
         transition:
             background-color 0.25s ease,
-            color 0.25s ease,
-            box-shadow 0.25s ease;
+            transform 0.2s ease;
     }
 
     .pdf-btn:hover {

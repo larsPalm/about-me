@@ -20,6 +20,12 @@
             "company": "DNB",
             "department": "T&S GT Greenhouse",
             "role": "IT architect graduate",
+            "acomplishments": [
+                "Fullørte DNB sitt 3årige graduate program i IT og arkitektur",
+                "Tok årsenhet i it-arkitektur",
+                "Gjorde chatbotene til dnb gdpr-vennlige, samt spare kost",
+                "Opptimaliserte meldingsflyt og resurser for meldingsflyt for bedriftskunder"
+            ],
             "from": "august 2022",
             "to": "august 2025",
             "current": false,

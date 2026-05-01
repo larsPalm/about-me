@@ -5,7 +5,7 @@
         "Java",
         "Typescript",
         "Javascript",
-        "sql",
+        "SQL",
         "bash",
         "C"
     ],
@@ -23,12 +23,12 @@
     ],
     "database": [
         "neo4j",
-        "postgres",
+        "Postgres",
         "mysql",
-        "sglServer",
-        "dynamodb",
-        "cosmosDb",
-        "sqlite"
+        "SglServer",
+        "DynamoDB",
+        "CosmosDb",
+        "SQLite"
     ],
     "clouds": [
         {
@@ -44,7 +44,10 @@
                 "Aurora/RDS",
                 "Cloudwatch",
                 "ECS",
-                "Batch"
+                "Batch",
+                "EC2",
+                "Secret Manager",
+                "Paramter Store"
             ]
         },
         {
@@ -55,7 +58,7 @@
                 "Container app",
                 "Blob storage",
                 "Table storage",
-                "SQL server"
+                "SQL Server"
             ]
         }
     ],

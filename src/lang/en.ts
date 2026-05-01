@@ -40,5 +40,6 @@ export const en = {
     /* knapper */
     experience: "Experience",
     /* other */
-    other: "Other"
+    other: "Other",
+    accomplishments: "accomplishments"
 };

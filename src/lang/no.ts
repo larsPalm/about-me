@@ -40,5 +40,6 @@ export const no = {
     /* knapper */
     experience: "Erfaring",
     /* other */
-    other: "Annet"
+    other: "Annet",
+    accomplishments: "oppnåelser"
 };
