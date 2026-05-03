@@ -32,10 +32,6 @@
             </div>
         {/if}
 
-        {#if education.grade}
-            <div><strong>{$t.grade}:</strong> {education.grade}</div>
-        {/if}
-
         {#if education.subjects && education.subjects.length > 0}
             <div>
                 <strong>{$t.subject}:</strong>

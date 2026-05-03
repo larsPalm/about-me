@@ -17,7 +17,7 @@
     // update tabs whenever tr changes
     $: if (tr) {
         const newTabs = [
-            tr.education,
+            tr.uniSchool,
             tr.experience,
             tr.achievements,
             tr.pdfSkills,
@@ -55,7 +55,7 @@
     </div>
 
     <div class="tab-content">
-        {#if $activeTab === tr.education}
+        {#if $activeTab === tr.uniSchool}
             <EducationDisplay />
         {:else if $activeTab === tr.experience}
             <ExperienceList />

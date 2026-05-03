@@ -6,7 +6,7 @@ export interface Education {
     type: string,
     to: string,
     from: string,
-    grade: string,
+    grade?: string,
     subjects: string[],
     thesis?: Thesis
 }

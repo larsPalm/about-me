@@ -107,7 +107,6 @@ LinkedIn: ${personalJson.linkedin}`,
                             text: `${edu.school} (${edu.from} – ${edu.to})`,
                             margin: [0, 0, 0, 3],
                         },
-                        { text: `${tr.grade}: ${edu.grade || "-"}` },
 
                         edu.subjects?.length
                             ? {
