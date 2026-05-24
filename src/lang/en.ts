@@ -4,8 +4,12 @@ export const en = {
     name: "Name",
     email: "Email",
     phone: "Phone",
+    type: "Type",
+    contactFor: "Contact information for",
+    selectedLanguage: "Language",
     /* pdf */
     pdfButton: "Download PDF",
+    pdfPreparing: "Preparing PDF...",
     pdfExperience: "Experience",
     pdfEducation: "Education",
     pdfSchool: "Schools",
@@ -13,6 +17,7 @@ export const en = {
     pdfOtherComp: "Achievements",
     pdfSkills: "Technical skills",
     pdfCloud: "Clouds",
+    pdfProgramming: "Programming",
     pdfThesis: "Thesis",
     pdfTopic: "Topics",
     pdfFordypning: "Specialization",
@@ -22,7 +27,7 @@ export const en = {
     education: "Education",
     years: "Years",
     grade: "Grade",
-    subject: "Subject/cources",
+    subject: "Subjects/courses",
     subTitle: "Sub title",
     topics: "Topics",
     to: "To",
@@ -37,9 +42,36 @@ export const en = {
     /* Kompetanse */
     lang: "Language",
     achievements: "Achievements",
+    additional: "Additional information",
     /* knapper */
     experience: "Experience",
     /* other */
     other: "Other",
-    accomplishments: "Accomplishments"
+    accomplishments: "Accomplishments",
+    present: "Present",
+    profileLabel: "Software Engineer · DNB",
+    profileDescription:
+        "Software engineer experienced in AWS infrastructure, DevOps, backend development and solution architecture. Master's degree in informatics from the University of Oslo.",
+    profileSection: "Profile",
+    coreCompetence: "Core expertise",
+    cloudHighlight: "AWS and cloud infrastructure",
+    languageHighlight: "Kotlin, Java, Python and TypeScript",
+    architectureHighlight: "DevOps and solution architecture",
+    cvSection: "Curriculum vitae",
+    sections: "CV sections",
+    experienceIntro:
+        "Development, cloud infrastructure and architecture in finance and academia.",
+    relevantTopics: "Relevant topics",
+    educationIntro: "University education and relevant additional training.",
+    skillsIntro: "Technologies and platforms used in development and delivery.",
+    programming: "Programming",
+    frameworks: "Frameworks",
+    clouds: "Cloud platforms",
+    databases: "Databases",
+    infrastructureAsCode: "Infrastructure as code",
+    observability: "Observability",
+    themeDark: "Dark mode",
+    themeLight: "Light mode",
+    expand: "Show details for",
+    collapse: "Hide details for"
 };

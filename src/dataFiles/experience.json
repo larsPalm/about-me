@@ -8,10 +8,10 @@
             "to": "dd",
             "current": true,
             "comments": [
-                "Jobber med infrastruktur i AWS, samt devops, og utvikling. Teamet driver med leveringer av ulike Camt-rapporter"
+                "Jobber med infrastruktur i AWS, samt DevOps og utvikling. Teamet driver med leveringer av ulike CAMT-rapporter."
             ],
             "remarks": [
-                "devops",
+                "DevOps",
                 "Infrastructure",
                 "AWS"
             ]
@@ -20,24 +20,24 @@
             "company": "DNB",
             "department": "T&S GT Greenhouse",
             "role": "IT architect graduate",
-            "acomplishments": [
-                "Fullørte DNB sitt 3årige graduate program i IT og arkitektur",
-                "Tok årsenhet i it-arkitektur",
-                "Gjorde chatbotene til dnb gdpr-vennlige, samt spare kost",
-                "Opptimaliserte meldingsflyt og resurser for meldingsflyt for bedriftskunder"
+            "accomplishments": [
+                "Fullførte DNB sitt 3-årige graduateprogram i IT og arkitektur",
+                "Tok årsenhet i IT-arkitektur",
+                "Gjorde chatbotene til DNB GDPR-vennlige, samt sparte kostnader",
+                "Optimaliserte meldingsflyt og ressurser for bedriftskunder"
             ],
             "from": "august 2022",
             "to": "august 2025",
             "current": false,
             "comments": [
                 "3. året: Payments: Jobbet som solution architect, og var med på deres modernisering til sky, og designet og kodet løsninger som skulle flyttes til sky.",
-                "2. året: Corporate banking (backend): Jobbet 3 måneder med DNB sine nye likviditetsløsning, og 9 måneder med mobilbanken for bedrifter.  I CB jobbet jeg som en solution architect og utvikler.",
-                "1. året: Emerging techonologies. Jobbet der med chatbot-ene til DNB som en software engineer. En av oppgavene var å gjøre chatbot-ene mer GDPR-vennlig."
+                "2. året: Corporate banking (backend): Jobbet 3 måneder med DNB sin nye likviditetsløsning, og 9 måneder med mobilbanken for bedrifter. I CB jobbet jeg som en solution architect og utvikler.",
+                "1. året: Emerging Technologies. Jobbet der med chatbotene til DNB som en software engineer. En av oppgavene var å gjøre chatbotene mer GDPR-vennlige."
             ],
             "remarks": [
                 "Software engineer",
                 "Solution architect",
-                "devops",
+                "DevOps",
                 "corporate banking",
                 "payments",
                 "AWS",
@@ -51,9 +51,9 @@
         },
         {
             "company": "UiO",
-            "department": "Instititut for informatikk",
+            "department": "Institutt for informatikk",
             "role": "Gruppelærer i IN1000",
-            "from": "ausust 2021",
+            "from": "august 2021",
             "to": "desember 2021",
             "current": false,
             "comments": [
@@ -69,9 +69,9 @@
         },
         {
             "company": "UiO",
-            "department": "Instititut for informatikk",
+            "department": "Institutt for informatikk",
             "role": "Orakel i forkurs i informatikk",
-            "from": "ausust 2021",
+            "from": "august 2021",
             "to": "august 2021",
             "current": false,
             "comments": [
@@ -101,7 +101,7 @@
         },
         {
             "company": "UiO",
-            "department": "Instititut for informatikk",
+            "department": "Institutt for informatikk",
             "role": "Gruppelærer i IN1000",
             "from": "januar 2021",
             "to": "juli 2021",
@@ -119,7 +119,7 @@
         },
         {
             "company": "UiO",
-            "department": "Instititut for informatikk",
+            "department": "Institutt for informatikk",
             "role": "Gruppelærer i IN1000",
             "from": "august 2020",
             "to": "desember 2020",
@@ -137,7 +137,7 @@
         },
         {
             "company": "Oppegård kommune",
-            "department": "resursbanken",
+            "department": "Ressursbanken",
             "role": "Tilkallingsvikar",
             "from": "mai 2017",
             "to": "desember 2017",

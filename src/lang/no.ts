@@ -4,15 +4,20 @@ export const no = {
     name: "Navn",
     email: "E-post",
     phone: "Telefon",
+    type: "Type",
+    contactFor: "Kontaktinformasjon for",
+    selectedLanguage: "Språk",
     /* pdf */
     pdfButton: "Last ned PDF",
+    pdfPreparing: "Klargjør PDF...",
     pdfExperience: "Arbeidserfaring",
     pdfEducation: "Utdanning",
     pdfSchool: "Skoler",
     pdfLang: "Språk",
     pdfOtherComp: "Kompetanse",
     pdfSkills: "Tekniske ferdigheter",
-    pdfCloud: "Skyplatformer",
+    pdfCloud: "Skyplattformer",
+    pdfProgramming: "Programmering",
     pdfThesis: "Masteroppgave",
     pdfTopic: "Temaer",
     pdfFordypning: "Fordypning",
@@ -28,7 +33,7 @@ export const no = {
     to: "Til",
     from: "Fra",
     /* erfaring */
-    department: "Avedling",
+    department: "Avdeling",
     period: "Periode",
     role: "Rolle",
     comments: "Kommentarer",
@@ -37,9 +42,36 @@ export const no = {
     /* Kompetanse */
     lang: "Språk",
     achievements: "Kompetanse",
+    additional: "Annet",
     /* knapper */
     experience: "Erfaring",
     /* other */
     other: "Annet",
-    accomplishments: "Oppnåelser"
+    accomplishments: "Oppnåelser",
+    present: "Present",
+    profileLabel: "Software Engineer · DNB",
+    profileDescription:
+        "Software engineer med erfaring innen AWS-infrastruktur, DevOps, backendutvikling og løsningsarkitektur. Master i informatikk fra Universitetet i Oslo.",
+    profileSection: "Profil",
+    coreCompetence: "Kjernekompetanse",
+    cloudHighlight: "AWS og skyinfrastruktur",
+    languageHighlight: "Kotlin, Java, Python og TypeScript",
+    architectureHighlight: "DevOps og løsningsarkitektur",
+    cvSection: "Curriculum vitae",
+    sections: "CV-seksjoner",
+    experienceIntro:
+        "Utvikling, skyinfrastruktur og arkitektur i finans og akademia.",
+    relevantTopics: "Relevante temaer",
+    educationIntro: "Universitetsutdanning og relevant tilleggsutdanning.",
+    skillsIntro: "Teknologier og plattformer brukt i utvikling og leveranser.",
+    programming: "Programmering",
+    frameworks: "Rammeverk",
+    clouds: "Skyplattformer",
+    databases: "Databaser",
+    infrastructureAsCode: "Infrastruktur som kode",
+    observability: "Observability",
+    themeDark: "Mørk modus",
+    themeLight: "Lys modus",
+    expand: "Vis detaljer for",
+    collapse: "Skjul detaljer for"
 };

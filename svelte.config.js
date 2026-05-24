@@ -1,15 +1,13 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-const dev = process.argv.includes('dev');
-
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
 			pages: 'docs',       // build output folder in main branch
 			assets: 'docs',
-			fallback: 'index.html'
+			fallback: '404.html'
 		}),
 		paths: {
 			base: '/about-me'

@@ -1,106 +1,94 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
     import ExperienceList from "./ExperienceList.svelte";
     import EducationDisplay from "./EducationDisplay.svelte";
     import Competance from "./Competance.svelte";
     import TechPreferance from "./TechPreferance.svelte";
-
     import { t } from "../stores/i18n";
 
-    // reactive translation
-    $: tr = $t;
+    type Section = "experience" | "skills" | "education" | "additional";
 
-    // initialize tabs and activeTab
-    let tabs: string[] = [];
-    const activeTab = writable("");
-
-    // update tabs whenever tr changes
-    $: if (tr) {
-        const newTabs = [
-            tr.uniSchool,
-            tr.experience,
-            tr.achievements,
-            tr.pdfSkills,
-        ];
-
-        // get current active tab index in old tabs
-        let currentIndex = tabs.indexOf($activeTab);
-
-        // update tabs
-        tabs = newTabs;
-
-        // if currentIndex valid, keep same logical tab, else default to first
-        if (currentIndex >= 0 && currentIndex < newTabs.length) {
-            activeTab.set(newTabs[currentIndex]);
-        } else {
-            activeTab.set(newTabs[0]);
-        }
-    }
-
-    const setTab = (tab: string) => {
-        activeTab.set(tab);
-    };
+    let activeTab: Section = "experience";
+    $: tabs = [
+        { id: "experience" as Section, label: $t.experience },
+        { id: "skills" as Section, label: $t.pdfSkills },
+        { id: "education" as Section, label: $t.education },
+        { id: "additional" as Section, label: $t.additional },
+    ];
 </script>
 
-<div>
-    <div class="tab-buttons">
-        {#each tabs as tab}
-            <button
-                class:active={$activeTab === tab}
-                on:click={() => setTab(tab)}
-            >
-                {tab}
-            </button>
-        {/each}
-    </div>
+<nav class="tabs" aria-label={$t.sections}>
+    {#each tabs as tab (tab.id)}
+        <button
+            id="tab-{tab.id}"
+            type="button"
+            class:active={activeTab === tab.id}
+            aria-current={activeTab === tab.id ? "page" : undefined}
+            on:click={() => (activeTab = tab.id)}
+        >
+            {tab.label}
+        </button>
+    {/each}
+</nav>
 
-    <div class="tab-content">
-        {#if $activeTab === tr.uniSchool}
-            <EducationDisplay />
-        {:else if $activeTab === tr.experience}
-            <ExperienceList />
-        {:else if $activeTab === tr.pdfSkills}
-            <TechPreferance />
-        {:else if $activeTab === tr.achievements}
-            <Competance />
-        {/if}
-    </div>
+<div class="tab-content" aria-labelledby="tab-{activeTab}">
+    {#if activeTab === "experience"}
+        <ExperienceList />
+    {:else if activeTab === "skills"}
+        <TechPreferance />
+    {:else if activeTab === "education"}
+        <EducationDisplay />
+    {:else}
+        <Competance />
+    {/if}
 </div>
 
 <style>
-    button {
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid var(--text);
-        background-color: blue;
-        color: white;
-        cursor: pointer;
-        font-weight: bold;
-        transition:
-            background-color 0.25s ease,
-            color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    /* Active tab */
-    button.active {
-        background-color: #ff0000;
-        color: var(--bg);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Hover effect */
-    button:hover {
-        background-color: var(--comp-bg);
-        color: var(--bg);
-    }
-
-    /* Optional: spacing for multiple buttons */
-    .tab-buttons {
+    .tabs {
         display: flex;
-        gap: 0.5rem;
         flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 1rem;
+        gap: 0.6rem;
+        margin-bottom: 2.2rem;
+    }
+
+    button {
+        border: 1px solid var(--border-color);
+        border-radius: 999px;
+        background: var(--surface-color);
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: bold;
+        padding: 0.7rem 1.05rem;
+        transition:
+            border-color 0.2s ease,
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+
+    button:hover,
+    button:focus-visible {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+
+    button.active {
+        border-color: var(--primary-color);
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .tab-content {
+        max-width: 880px;
+    }
+
+    @media (max-width: 520px) {
+        .tabs {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        button {
+            width: 100%;
+        }
     }
 </style>

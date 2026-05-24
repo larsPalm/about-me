@@ -1,105 +1,75 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
     import type { Language } from "../types/language";
-    import langJson from "../dataFiles/language.json";
-    import kompetanse from "../dataFiles/kompetanse.json";
+    import languagesNo from "../dataFiles/language.json";
+    import competenciesNo from "../dataFiles/kompetanse.json";
     import { t } from "../stores/i18n";
 
-    export let languages: Language[] = langJson;
-    export let achievements: string[] = kompetanse;
+    export let languages: Language[] | undefined = undefined;
+    export let achievements: string[] | undefined = undefined;
 
-    const langOpen = writable(false);
-    const achOpen = writable(false);
-
-    const toggleLang = () => langOpen.update((v) => !v);
-    const toggleAch = () => achOpen.update((v) => !v);
+    $: displayLanguages = languages ?? languagesNo;
+    $: displayAchievements = achievements ?? competenciesNo;
 </script>
 
-<div class="accordion-wrapper">
-    <div class="accordion-item">
-        <div class="header" on:click={toggleLang}>
-            <span>{$t.lang}</span>
-            <span>{$langOpen ? "▲" : "▼"}</span>
-        </div>
-        <div class="body" class:hidden={!$langOpen} class:visible={$langOpen}>
+<section class="additional" aria-labelledby="additional-heading">
+    <h2 id="additional-heading">{$t.additional}</h2>
+    <div class="cards">
+        <article>
+            <h3>{$t.lang}</h3>
             <ul>
-                {#each languages as lang (lang.name)}
+                {#each displayLanguages as lang (lang.name)}
                     <li><strong>{lang.name}:</strong> {lang.level}</li>
                 {/each}
             </ul>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <div class="header" on:click={toggleAch}>
-            <span>{$t.achievements}</span>
-            <span>{$achOpen ? "▲" : "▼"}</span>
-        </div>
-        <div class="body" class:hidden={!$achOpen} class:visible={$achOpen}>
+        </article>
+        <article>
+            <h3>{$t.achievements}</h3>
             <ul>
-                {#each achievements as ach (ach)}
-                    <li>{ach}</li>
+                {#each displayAchievements as achievement (achievement)}
+                    <li>{achievement}</li>
                 {/each}
             </ul>
-        </div>
+        </article>
     </div>
-</div>
+</section>
 
 <style>
-    .accordion-wrapper {
-        display: flex;
-        flex-direction: row; /* horizontal layout */
-        justify-content: center; /* center the accordions */
-        gap: 1rem; /* spacing between accordions */
-        flex-wrap: wrap; /* wrap on small screens */
-        align-items: flex-start; /* prevent height stretching */
+    h2 {
+        font-size: clamp(1.55rem, 3vw, 1.9rem);
+        margin: 0 0 1.4rem;
     }
 
-    .accordion-item {
-        flex: 0 0 300px; /* fixed width */
-        padding: 1rem;
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+    }
+
+    article {
+        border: 1px solid var(--border-color);
         border-radius: 1rem;
-        border: 1px solid var(--text-color);
-        background-color: var(--comp-bg);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        transition:
-            background 0.25s ease,
-            box-shadow 0.25s ease;
+        background: var(--surface-color);
+        padding: 1.2rem 1.4rem;
     }
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        font-weight: bold;
-        font-size: 1.1rem;
+    h3 {
+        font-size: 1.08rem;
+        margin: 0 0 0.8rem;
     }
 
-    .body {
-        margin-top: 0.5rem;
-        overflow: hidden;
-        transition:
-            max-height 0.3s ease,
-            opacity 0.3s ease;
-        width: 100%; /* ensure it fills the accordion width */
+    ul {
+        line-height: 1.55;
+        margin: 0;
+        padding-left: 1.1rem;
     }
 
-    .body.hidden {
-        max-height: 0;
-        opacity: 0;
-        pointer-events: none;
+    li + li {
+        margin-top: 0.4rem;
     }
 
-    .body.visible {
-        max-height: 600px;
-        opacity: 1;
-    }
-
-    .body ul {
-        margin: 0.25rem 0 0 1rem;
-    }
-
-    .body li {
-        margin: 0.25rem 0;
+    @media (max-width: 680px) {
+        .cards {
+            grid-template-columns: 1fr;
+        }
     }
 </style>

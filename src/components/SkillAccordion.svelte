@@ -1,94 +1,52 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
     import type { Cloud } from "../types/cloud";
 
     export let title: string;
     export let list: string[] | Cloud[] = [];
 
-    const isOpen = writable(false);
-
-    const toggle = () => {
-        isOpen.update((v) => !v);
-    };
-
-    // Type guard to check if an item is Cloud
-    const isCloud = (item: string | Cloud): item is Cloud => {
-        return (
-            typeof item === "object" && "name" in item && "resources" in item
-        );
-    };
+    const isCloud = (item: string | Cloud): item is Cloud =>
+        typeof item === "object" && "resources" in item;
 </script>
 
-<div class="accordion-item">
-    <div class="header" on:click={toggle}>
-        <span>{title}</span>
-        <span>{$isOpen ? "▲" : "▼"}</span>
-    </div>
-
-    <div class="body" class:hidden={!$isOpen} class:visible={$isOpen}>
-        <ul>
-            {#each list as item}
-                {#if isCloud(item)}
-                    <li>
-                        <strong>{item.name}</strong>
-                        <ul>
-                            {#each item.resources as r}
-                                <li>{r}</li>
-                            {/each}
-                        </ul>
-                    </li>
-                {:else}
-                    <li>{item}</li>
-                {/if}
-            {/each}
-        </ul>
-    </div>
-</div>
+<article class="skill">
+    <h3>{title}</h3>
+    <ul>
+        {#each list as item (typeof item === "string" ? item : item.name)}
+            {#if isCloud(item)}
+                <li>
+                    <strong>{item.name}:</strong> {item.resources.join(", ")}
+                </li>
+            {:else}
+                <li>{item}</li>
+            {/if}
+        {/each}
+    </ul>
+</article>
 
 <style>
-    .accordion-item {
-        padding: 1rem;
+    .skill {
+        border: 1px solid var(--border-color);
         border-radius: 1rem;
-        border: 1px solid var(--text-color);
-        background-color: var(--comp-bg);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        transition:
-            background 0.25s ease,
-            box-shadow 0.25s ease;
+        background: var(--surface-color);
+        min-width: 0;
+        padding: 1.1rem 1.25rem;
     }
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
-
-    .body {
-        margin-top: 0.5rem;
-        overflow: hidden;
-        transition:
-            max-height 0.3s ease,
-            opacity 0.3s ease;
-    }
-
-    .body.hidden {
-        max-height: 0;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .body.visible {
-        max-height: 800px;
-        opacity: 1;
+    h3 {
+        color: var(--primary-color);
+        font-size: 1rem;
+        margin: 0 0 0.75rem;
     }
 
     ul {
-        margin: 0.25rem 0 0 1rem;
+        color: var(--text-muted);
+        font-size: 0.94rem;
+        line-height: 1.5;
+        margin: 0;
+        padding-left: 1.05rem;
     }
 
-    li {
-        margin: 0.25rem 0;
+    li + li {
+        margin-top: 0.28rem;
     }
 </style>

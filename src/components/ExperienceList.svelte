@@ -1,39 +1,36 @@
 <script lang="ts">
     import ExperienceAccordion from "./ExperienceAccordion.svelte";
-    import erfaringJson from "../dataFiles/experience.json";
+    import erfaringNo from "../dataFiles/experience.json";
     import type { ExperienceData } from "../types/experienceData";
+    import { t } from "../stores/i18n";
 
-    const erfaring: ExperienceData = erfaringJson as ExperienceData;
+    const erfaring = erfaringNo as ExperienceData;
 </script>
 
-<div class="experience-container">
-    <h1>Erfaring</h1>
+<section class="experience-container" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">{$t.pdfExperience}</h2>
+    <p class="intro">{$t.experienceIntro}</p>
     <div class="experience-list">
-        {#each erfaring.erfaring as exp}
-            <ExperienceAccordion experience={exp} />
+        {#each erfaring.erfaring as exp, index (exp.company + exp.from + exp.role)}
+            <ExperienceAccordion experience={exp} featured={index < 2} />
         {/each}
     </div>
-</div>
+</section>
 
 <style>
-    .experience-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem; /* smaller spacing */
-        width: 100%; /* fill parent flex item */
+    h2 {
+        font-size: clamp(1.55rem, 3vw, 1.9rem);
+        margin: 0 0 0.45rem;
     }
 
-    .experience-container h1 {
-        margin: 0 0 0.5rem 0;
-        font-size: 1.5rem;
-        text-align: center;
+    .intro {
+        color: var(--text-muted);
+        margin: 0 0 1.5rem;
     }
 
     .experience-list {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        width: 100%; /* fill parent */
-        align-items: stretch; /* accordion items take full width */
+        gap: 0.9rem;
     }
 </style>

@@ -7,11 +7,11 @@
         "to": "2025",
         "subjects": [
             "utvikling/drift av komplekse systemer",
-            "devops",
+            "DevOps",
             "arkitektur",
             "ledelse",
             "innovasjon",
-            "digital innvoasjon"
+            "digital innovasjon"
         ]
     },
     "master": {
@@ -50,12 +50,12 @@
         "from": "2018",
         "to": "2019",
         "subjects": [
-            "antatomi",
+            "anatomi",
             "treningslære",
             "ernæring",
             "mental trening",
             "PT",
-            "stryketrening",
+            "styrketrening",
             "utholdenhetstrening"
         ]
     },
@@ -68,7 +68,7 @@
         "subjects": [
             "database",
             "sikkerhet",
-            "progammering",
+            "programmering",
             "objektorientert programmering",
             "algoritmer",
             "datastrukturer",

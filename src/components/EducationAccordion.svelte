@@ -1,109 +1,141 @@
 <script lang="ts">
-    import { writable } from "svelte/store";
-    import ThesisAccordion from "./ThesisAccordion.svelte";
     import type { Education } from "../types/education";
     import { t } from "../stores/i18n";
 
     export let education: Education;
 
-    const isOpen = writable(false);
-    const toggle = () => isOpen.update((v) => !v);
+    let isOpen = false;
+    $: contentId = `education-${education.name}-${education.type}`
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-");
 </script>
 
-<div class="accordion-item">
-    <div class="header" on:click={toggle}>
-        <span>{education.name || education.school}</span>
-        <span>{$isOpen ? "▲" : "▼"}</span>
-    </div>
+<article class="education-entry">
+    <button
+        type="button"
+        class="header"
+        aria-expanded={isOpen}
+        aria-controls={contentId}
+        aria-label={`${isOpen ? $t.collapse : $t.expand} ${education.name}`}
+        on:click={() => (isOpen = !isOpen)}
+    >
+        <span>
+            <strong>{education.name}</strong>
+            <small>{education.school} · {education.type}</small>
+        </span>
+        <span class="period">{education.from} – {education.to}</span>
+        <span class="indicator" aria-hidden="true">{isOpen ? "−" : "+"}</span>
+    </button>
 
-    <div class="body" class:hidden={!$isOpen} class:visible={$isOpen}>
-        {#if education.school}
-            <div><strong>{$t.uniSchool}:</strong> {education.school}</div>
-        {/if}
+    {#if isOpen}
+        <div class="body" id={contentId}>
+            {#if education.thesis}
+                <p>
+                    <strong>{$t.pdfThesis}:</strong>
+                    {education.thesis.name} –
+                    {education.thesis.subTitle}
+                </p>
+            {/if}
 
-        {#if education.type}
-            <div><strong>Type:</strong> {education.type}</div>
-        {/if}
-
-        {#if education.from || education.to}
-            <div>
-                <strong>{$t.years}:</strong>
-                {education.from} – {education.to}
-            </div>
-        {/if}
-
-        {#if education.subjects && education.subjects.length > 0}
-            <div>
-                <strong>{$t.subject}:</strong>
-                <ul>
-                    {#each education.subjects as subject}
-                        <li>{subject}</li>
-                    {/each}
-                </ul>
-            </div>
-        {/if}
-
-        {#if education.thesis}
-            <ThesisAccordion thesis={education.thesis} />
-        {/if}
-    </div>
-</div>
+            {#if education.subjects.length > 0}
+                <p>
+                    <strong>{$t.topics}:</strong>
+                    {education.subjects.join(", ")}
+                </p>
+            {/if}
+        </div>
+    {/if}
+</article>
 
 <style>
-    .accordion-item {
-        border: 1px solid var(--text-color);
-        background-color: var(--comp-bg);
+    .education-entry {
+        width: 100%;
+        border: 1px solid var(--border-color);
         border-radius: 1rem;
-        padding: 1rem;
-        width: 340px;
-        box-shadow:
-            0 4px 8px rgba(0, 0, 0, 0.2),
-            inset 0 0 6px rgba(0, 0, 0, 0.05);
-        margin: 0.5rem auto;
-        cursor: pointer;
-        transition:
-            background 0.25s ease,
-            color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    html.dark-mode .accordion-item {
-        box-shadow:
-            0 4px 8px rgba(255, 255, 255, 0.1),
-            inset 0 0 6px rgba(255, 255, 255, 0.05);
-    }
-
-    .header {
-        display: flex;
-        justify-content: space-between;
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
-
-    .body {
-        margin-top: 0.5rem;
-        transition:
-            max-height 0.3s ease,
-            opacity 0.3s ease;
+        background: var(--surface-color);
         overflow: hidden;
     }
 
-    .body.hidden {
-        max-height: 0;
-        opacity: 0;
-        pointer-events: none;
+    .header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        border: 0;
+        background: transparent;
+        color: var(--text-color);
+        cursor: pointer;
+        padding: 1.2rem 1.4rem;
+        text-align: left;
     }
 
-    .body.visible {
-        max-height: 600px;
-        opacity: 1;
+    .header:hover,
+    .header:focus-visible {
+        background: var(--surface-muted);
     }
 
-    .body div {
-        margin: 0.25rem 0;
+    strong {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
     }
 
-    ul {
-        margin: 0.25rem 0 0.5rem 1rem;
+    small,
+    .period,
+    .body {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+    }
+
+    .period {
+        white-space: nowrap;
+    }
+
+    .indicator {
+        color: var(--primary-color);
+        font-size: 1.35rem;
+        font-weight: bold;
+    }
+
+    .body {
+        border-top: 1px solid var(--border-color);
+        line-height: 1.55;
+        padding: 1rem 1.4rem 1.2rem;
+    }
+
+    .body p {
+        margin: 0;
+    }
+
+    .body p + p {
+        margin-top: 0.65rem;
+    }
+
+    .body strong {
+        display: inline;
+        font-size: inherit;
+        margin: 0;
+    }
+
+    @media (max-width: 600px) {
+        .header {
+            grid-template-columns: minmax(0, 1fr) auto;
+            padding: 1rem;
+        }
+
+        .period {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .indicator {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+
+        .body {
+            padding: 0.9rem 1rem 1rem;
+        }
     }
 </style>

@@ -3,126 +3,231 @@
     import { t } from "../stores/i18n";
 
     export let experience: Experience;
+    export let featured: boolean = false;
 
     let isOpen = false;
-    const toggle = () => (isOpen = !isOpen);
+    $: hasDetails =
+        Boolean(experience.accomplishments?.length) ||
+        Boolean(experience.comments?.length) ||
+        Boolean(experience.remarks?.length);
+    $: contentId = `experience-${experience.company}-${experience.role}-${experience.from}`
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-");
 </script>
 
-<div class="accordion-item">
-    <div class="header" on:click={toggle}>
-        <span>{experience.company || "Unknown Company"}</span>
-        <span>{isOpen ? "▲" : "▼"}</span>
-    </div>
-
-    <div class="body" class:hidden={!isOpen} class:visible={isOpen}>
-        {#if experience.department}
-            <div><strong>{$t.department}:</strong> {experience.department}</div>
-        {/if}
-
-        {#if experience.role}
-            <div><strong>{$t.role}:</strong> {experience.role}</div>
-        {/if}
-
-        <div>
-            <strong>{$t.period}:</strong>
-            {experience.from || "?"} – {experience.current
-                ? "Present"
-                : experience.to || "?"}
+<article class="experience" class:featured>
+    {#if hasDetails}
+        <button
+            type="button"
+            class="summary"
+            aria-expanded={isOpen}
+            aria-controls={contentId}
+            aria-label={`${isOpen ? $t.collapse : $t.expand} ${experience.role} ${experience.company}`}
+            on:click={() => (isOpen = !isOpen)}
+        >
+            <span>
+                <strong>{experience.role}</strong>
+                <small>
+                    {experience.company}{experience.department
+                        ? ` · ${experience.department}`
+                        : ""}
+                </small>
+            </span>
+            <span class="period">
+                {experience.from} – {experience.current ? $t.present : experience.to}
+            </span>
+            <span class="indicator" aria-hidden="true">{isOpen ? "−" : "+"}</span>
+        </button>
+    {:else}
+        <div class="summary plain">
+            <span>
+                <strong>{experience.role}</strong>
+                <small>
+                    {experience.company}{experience.department
+                        ? ` · ${experience.department}`
+                        : ""}
+                </small>
+            </span>
+            <span class="period">
+                {experience.from} – {experience.current ? $t.present : experience.to}
+            </span>
         </div>
+    {/if}
 
-        {#if experience.acomplishments?.length}
-            <div class="accomplishments">
-                <strong>{$t.accomplishments}:</strong>
-                <ul>
-                    {#each experience.acomplishments as item}
-                        <li>{item}</li>
-                    {/each}
-                </ul>
-            </div>
-        {/if}
+    {#if isOpen && hasDetails}
+        <div class="body" id={contentId}>
+            {#if experience.accomplishments?.length}
+                <section class="detail-group accomplishments" aria-label={$t.accomplishments}>
+                    <h4>{$t.accomplishments}</h4>
+                    <ul class="points">
+                        {#each experience.accomplishments as item (item)}
+                            <li>{item}</li>
+                        {/each}
+                    </ul>
+                </section>
+            {/if}
 
-        {#if experience.comments?.length}
-            <div class="comments">
-                <strong>{$t.comments}:</strong>
-                <ul>
-                    {#each experience.comments as comment}
-                        <li>{comment}</li>
-                    {/each}
-                </ul>
-            </div>
-        {/if}
+            {#if experience.comments?.length}
+                <section class="detail-group comments" aria-label={$t.comments}>
+                    <h4>{$t.comments}</h4>
+                    <ul class="points">
+                        {#each experience.comments as comment (comment)}
+                            <li>{comment}</li>
+                        {/each}
+                    </ul>
+                </section>
+            {/if}
 
-        {#if experience.remarks?.length}
-            <div class="remarks">
-                <strong>{$t.remarks}:</strong>
-                <ul>
-                    {#each experience.remarks as remark}
+            {#if experience.remarks?.length}
+                <ul class="tags" aria-label={$t.relevantTopics}>
+                    {#each experience.remarks as remark (remark)}
                         <li>{remark}</li>
                     {/each}
                 </ul>
-            </div>
-        {:else}
-            <div class="remarks"><em>{$t.noRemarks}</em></div>
-        {/if}
-    </div>
-</div>
+            {/if}
+        </div>
+    {/if}
+</article>
 
 <style>
-    .accordion-item {
-        display: block; /* standard block so it stacks vertically */
-        width: 100%; /* allows inner container to control size */
-        max-width: 500px; /* all accordions will be this width */
-        margin: 0.5rem auto; /* center horizontally */
-        padding: 0.8rem;
+    .experience {
+        border: 1px solid var(--border-color);
         border-radius: 1rem;
-        border: 1px solid var(--text-color);
-        background-color: var(--comp-bg);
-        box-shadow:
-            0 4px 8px rgba(0, 0, 0, 0.2),
-            inset 0 0 6px rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-        transition:
-            background 0.25s ease,
-            color 0.25s ease,
-            box-shadow 0.25s ease;
+        background: var(--surface-color);
+        overflow: hidden;
+        width: 100%;
     }
 
-    .header {
-        display: flex;
-        justify-content: space-between;
+    .featured {
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .summary {
+        align-items: center;
+        background: transparent;
+        border: 0;
+        color: var(--text-color);
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        padding: 1.2rem 1.4rem;
+        text-align: left;
+        width: 100%;
+    }
+
+    button.summary {
+        cursor: pointer;
+    }
+
+    button.summary:hover,
+    button.summary:focus-visible {
+        background: var(--surface-muted);
+    }
+
+    .plain {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    strong {
+        display: block;
+        font-size: 1.13rem;
+        margin: 0 0 0.3rem;
+    }
+
+    small,
+    .period {
+        color: var(--text-muted);
+        font-size: 0.94rem;
+    }
+
+    .period {
+        white-space: nowrap;
+    }
+
+    .indicator {
+        color: var(--primary-color);
+        font-size: 1.35rem;
         font-weight: bold;
-        font-size: 1.1rem;
     }
 
     .body {
-        margin-top: 0.5rem;
-        overflow: hidden;
-        transition:
-            max-height 0.3s ease,
-            opacity 0.3s ease;
+        border-top: 1px solid var(--border-color);
+        padding: 0.1rem 1.4rem 1.2rem;
     }
 
-    .body.hidden {
-        max-height: 0;
-        opacity: 0;
-        pointer-events: none;
+    .detail-group {
+        margin-top: 1rem;
     }
 
-    .body.visible {
-        max-height: 800px;
-        opacity: 1;
+    .detail-group h4 {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        margin: 0 0 0.55rem;
+        text-transform: uppercase;
     }
 
-    .body div {
-        margin: 0.25rem 0;
+    .accomplishments {
+        background: var(--surface-muted);
+        border-left: 3px solid var(--primary-color);
+        border-radius: 0.6rem;
+        padding: 0.75rem 0.9rem;
     }
 
-    .remarks {
-        margin-top: 0.5rem;
+    .accomplishments h4 {
+        color: var(--primary-color);
     }
 
-    .remarks ul {
-        padding-left: 1rem;
-        margin: 0.25rem 0 0.5rem 0;
+    .accomplishments + .comments {
+        border-top: 1px solid var(--border-color);
+        padding-top: 1rem;
+    }
+
+    .points {
+        line-height: 1.55;
+        margin: 0;
+        padding-left: 1.2rem;
+    }
+
+    .points li + li {
+        margin-top: 0.4rem;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.42rem;
+        list-style: none;
+        margin: 1rem 0 0;
+        padding: 0;
+    }
+
+    .tags li {
+        background: var(--surface-muted);
+        border-radius: 999px;
+        color: var(--text-muted);
+        font-size: 0.84rem;
+        padding: 0.34rem 0.62rem;
+    }
+
+    @media (max-width: 600px) {
+        .summary {
+            grid-template-columns: minmax(0, 1fr) auto;
+            padding: 1rem;
+        }
+
+        .period {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .indicator {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+
+        .body {
+            padding: 0.1rem 1rem 1rem;
+        }
     }
 </style>

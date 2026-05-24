@@ -3,32 +3,32 @@
         "Kotlin",
         "Python",
         "Java",
-        "Typescript",
-        "Javascript",
+        "TypeScript",
+        "JavaScript",
         "SQL",
-        "bash",
+        "Bash",
         "C"
     ],
     "framework": [
-        "Fastapi",
+        "FastAPI",
         "Spring",
         "Micronaut",
         "Fastify",
-        "Node",
+        "Node.js",
         "Svelte",
-        "Kotlin multiplatform",
+        "Kotlin Multiplatform",
         "Express",
         "React",
         "Django"
     ],
     "database": [
-        "neo4j",
-        "Postgres",
-        "mysql",
-        "SglServer",
+        "PostgreSQL",
+        "MySQL",
+        "SQL Server",
         "DynamoDB",
-        "CosmosDb",
-        "SQLite"
+        "SQLite",
+        "Neo4j",
+        "Cosmos DB"
     ],
     "clouds": [
         {
@@ -38,41 +38,47 @@
                 "Fargate",
                 "SQS",
                 "DynamoDB",
-                "Cloudfront",
+                "CloudFront",
                 "S3",
                 "ElastiCache",
                 "Aurora/RDS",
-                "Cloudwatch",
+                "CloudWatch",
                 "ECS",
                 "Batch",
                 "EC2",
-                "Secret Manager",
-                "Paramter Store"
+                "Secrets Manager",
+                "Parameter Store",
+                "KMS",
+                "API Gateway",
+                "ECR"
             ]
         },
         {
             "name": "Azure",
             "resources": [
                 "App Service",
-                "Cosmos db",
-                "Container app",
-                "Blob storage",
-                "Table storage",
-                "SQL Server"
+                "Cosmos DB",
+                "Container Apps",
+                "Blob Storage",
+                "Table Storage",
+                "SQL Server",
+                "ACR",
+                "CDN"
             ]
         }
     ],
     "iac": [
         "Terraform",
-        "Cloud formation"
+        "Terragrunt",
+        "CloudFormation"
     ],
     "cicd": [
-        "Gitlab ci",
-        "Github actions"
+        "GitLab CI",
+        "GitHub Actions"
     ],
     "observability": [
         "Grafana",
-        "Promethious",
+        "Prometheus",
         "OpenTelemetry"
     ],
     "other": [
