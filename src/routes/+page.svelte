@@ -3,19 +3,46 @@
     import ContentSwitch from "../components/ContentSwitch.svelte";
     import PdfGenerator from "../components/PdfGenerator.svelte";
     import contact from "../dataFiles/contactInfo.json";
+    import {
+        aiAwsPrompt,
+        aiDevopsPrompt,
+        aiProfileSummary,
+        aiSolutionArchitecturePrompt,
+    } from "$lib/metadata/ai";
     import { t } from "../stores/i18n";
     import { base } from "$app/paths";
+
+    const canonicalUrl = "https://larsPalm.github.io/about-me/";
 </script>
 
 <svelte:head>
     <title>Lars Christian Hovtun Palm | Software Engineer</title>
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="description" content={$t.profileDescription} />
+    <meta name="author" content="Lars Christian Hovtun Palm" />
+    <meta name="robots" content="index,follow" />
+    <meta name="application-name" content="Lars Christian Hovtun Palm" />
+    <meta name="ai:devops" content={aiDevopsPrompt} />
+    <meta name="ai:solution-architecture" content={aiSolutionArchitecturePrompt} />
+    <meta name="ai:aws" content={aiAwsPrompt} />
+    <meta name="ai:summary" content={aiProfileSummary} />
+    <meta property="og:title" content="Lars Christian Hovtun Palm | Software Engineer" />
+    <meta property="og:description" content={$t.profileDescription} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Lars Christian Hovtun Palm" />
+    <meta property="og:image" content={`${base}/profilebilde.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lars Christian Hovtun Palm | Software Engineer" />
+    <meta name="twitter:description" content={$t.profileDescription} />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Lars Christian Hovtun Palm",
             "jobTitle": "Software Engineer",
+            "url": "https://larsPalm.github.io/about-me/",
+            "image": "https://larsPalm.github.io/about-me/profilebilde.png",
             "worksFor": {
                 "@type": "Organization",
                 "name": "DNB"

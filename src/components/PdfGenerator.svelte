@@ -10,6 +10,7 @@
     import educationNo from "../dataFiles/education.json";
     import experienceNo from "../dataFiles/experience.json";
     import personalJson from "../dataFiles/contactInfo.json";
+    import { aiPdfKeywords, aiPdfPrompt } from "$lib/metadata/ai";
     import { t } from "../stores/i18n";
 
     $: tr = $t;
@@ -45,6 +46,12 @@
                 info: {
                     title: "CV – Lars Palm",
                     author: personalJson.name,
+                    subject: `AI prompt: ${aiPdfPrompt}`,
+                    keywords: aiPdfKeywords,
+                    creator: "about-me web app",
+                    producer: "pdfmake",
+                    creationDate: new Date(),
+                    modDate: new Date(),
                 },
                 content: [
                     { text: personalJson.name, style: "header" },
