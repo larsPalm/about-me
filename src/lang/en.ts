@@ -51,7 +51,7 @@ export const en = {
     present: "Present",
     profileLabel: "Software Engineer · DNB",
     profileDescription:
-        "Software engineer experienced in AWS infrastructure, DevOps, backend development and solution architecture. Master's degree in informatics from the University of Oslo.",
+        "Software engineer experienced in AWS infrastructure, DevOps, backend development, full-stack development and solution architecture. Master's degree in informatics from the University of Oslo.",
     profileSection: "Profile",
     coreCompetence: "Core expertise",
     cloudHighlight: "AWS and cloud infrastructure",

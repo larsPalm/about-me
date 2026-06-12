@@ -51,7 +51,7 @@ export const no = {
     present: "Present",
     profileLabel: "Software Engineer · DNB",
     profileDescription:
-        "Software engineer med erfaring innen AWS-infrastruktur, DevOps, backendutvikling og løsningsarkitektur. Master i informatikk fra Universitetet i Oslo.",
+        "Software engineer med erfaring innen AWS-infrastruktur, DevOps, backendutvikling, fullstackutvikling og løsningsarkitektur. Master i informatikk fra Universitetet i Oslo.",
     profileSection: "Profil",
     coreCompetence: "Kjernekompetanse",
     cloudHighlight: "AWS og skyinfrastruktur",
