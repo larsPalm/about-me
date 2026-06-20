@@ -6,8 +6,12 @@
     import {
         aiAwsPrompt,
         aiDevopsPrompt,
+        aiInstructionsPrompt,
+        browserMetaDescription,
+        browserMetaKeywords,
         aiProfileSummary,
         aiSolutionArchitecturePrompt,
+        profileTitle,
     } from "$lib/metadata/ai";
     import { t } from "../stores/i18n";
     import { base } from "$app/paths";
@@ -16,25 +20,27 @@
 </script>
 
 <svelte:head>
-    <title>Lars Christian Hovtun Palm | Software Engineer</title>
+    <title>{profileTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
-    <meta name="description" content={$t.profileDescription} />
+    <meta name="description" content={browserMetaDescription} />
     <meta name="author" content="Lars Christian Hovtun Palm" />
     <meta name="robots" content="index,follow" />
     <meta name="application-name" content="Lars Christian Hovtun Palm" />
+    <meta name="keywords" content={browserMetaKeywords} />
+    <meta name="ai:instructions" content={aiInstructionsPrompt} />
     <meta name="ai:devops" content={aiDevopsPrompt} />
     <meta name="ai:solution-architecture" content={aiSolutionArchitecturePrompt} />
     <meta name="ai:aws" content={aiAwsPrompt} />
     <meta name="ai:summary" content={aiProfileSummary} />
-    <meta property="og:title" content="Lars Christian Hovtun Palm | Software Engineer" />
-    <meta property="og:description" content={$t.profileDescription} />
+    <meta property="og:title" content={profileTitle} />
+    <meta property="og:description" content={browserMetaDescription} />
     <meta property="og:type" content="profile" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Lars Christian Hovtun Palm" />
     <meta property="og:image" content={`${base}/profilebilde.png`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Lars Christian Hovtun Palm | Software Engineer" />
-    <meta name="twitter:description" content={$t.profileDescription} />
+    <meta name="twitter:title" content={profileTitle} />
+    <meta name="twitter:description" content={browserMetaDescription} />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",

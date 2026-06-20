@@ -10,7 +10,7 @@
     import educationNo from "../dataFiles/education.json";
     import experienceNo from "../dataFiles/experience.json";
     import personalJson from "../dataFiles/contactInfo.json";
-    import { aiPdfKeywords, aiPdfPrompt } from "$lib/metadata/ai";
+    import { aiPdfKeywords, aiPdfPrompt, profileTitle } from "$lib/metadata/ai";
     import { t } from "../stores/i18n";
 
     $: tr = $t;
@@ -44,7 +44,7 @@
 
             const docDefinition: TDocumentDefinitions = {
                 info: {
-                    title: "CV – Lars Palm",
+                    title: profileTitle,
                     author: personalJson.name,
                     subject: `AI prompt: ${aiPdfPrompt}`,
                     keywords: aiPdfKeywords,
