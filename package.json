@@ -14,7 +14,7 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"deploy": "gh-pages -d docs",
-		"build_and_deploy": "npm run build && npm run deploy"
+		"build_and_deploy": "pnpm run build && pnpm run deploy"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",

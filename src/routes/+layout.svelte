@@ -6,12 +6,15 @@
 </script>
 
 <header class="toolbar">
-  <PrivacyModal />
   <LangToggle />
   <ThemeToggle />
 </header>
 
 <slot />
+
+<footer class="footer">
+  <PrivacyModal />
+</footer>
 
 <style>
   .toolbar {
@@ -22,5 +25,14 @@
     width: min(1120px, calc(100% - 2rem));
     margin: 0 auto;
     padding-top: 1rem;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 1.25rem 0 2rem;
+    border-top: 1px solid var(--border-color);
   }
 </style>
