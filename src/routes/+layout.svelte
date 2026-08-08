@@ -1,12 +1,10 @@
 <script lang="ts">
   import "../styles/global.scss";
-  import LangToggle from "../components/LangToggle.svelte";
   import PrivacyModal from "../components/PrivacyModal.svelte";
   import ThemeToggle from "../components/ThemeToggle.svelte";
 </script>
 
 <header class="toolbar">
-  <LangToggle />
   <ThemeToggle />
 </header>
 

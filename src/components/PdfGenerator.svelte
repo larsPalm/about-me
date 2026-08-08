@@ -324,16 +324,24 @@ LinkedIn: ${personalJson.linkedin}`,
         border: 1px solid var(--primary-color);
         border-radius: 0.65rem;
         background: var(--primary-color);
-        color: white;
+        color: var(--text-on-primary);
         cursor: pointer;
         font-weight: bold;
+        min-height: 44px;
         padding: 0.72rem 1.15rem;
-        transition: background-color 0.2s ease;
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease;
     }
 
     .pdf-btn:hover,
     .pdf-btn:focus-visible {
         background-color: var(--primary-hover);
+    }
+
+    .pdf-btn:active:not(:disabled) {
+        border-color: var(--primary-active);
+        background-color: var(--primary-active);
     }
 
     .pdf-btn:disabled {

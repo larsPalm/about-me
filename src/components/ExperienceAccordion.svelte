@@ -124,6 +124,10 @@
         background: var(--surface-muted);
     }
 
+    button.summary:active {
+        background: var(--surface-muted);
+    }
+
     .plain {
         grid-template-columns: minmax(0, 1fr) auto;
     }
@@ -131,13 +135,14 @@
     strong {
         display: block;
         font-size: 1.13rem;
+        font-weight: 600;
         margin: 0 0 0.3rem;
     }
 
     small,
     .period {
         color: var(--text-muted);
-        font-size: 0.94rem;
+        font-size: 0.9rem;
     }
 
     .period {
@@ -207,6 +212,7 @@
         border-radius: 999px;
         color: var(--text-muted);
         font-size: 0.84rem;
+        font-weight: 500;
         padding: 0.34rem 0.62rem;
     }
 

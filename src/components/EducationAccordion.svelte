@@ -75,9 +75,14 @@
         background: var(--surface-muted);
     }
 
+    .header:active {
+        background: var(--surface-muted);
+    }
+
     strong {
         display: block;
         font-size: 1.1rem;
+        font-weight: 600;
         margin-bottom: 0.25rem;
     }
 
@@ -85,7 +90,7 @@
     .period,
     .body {
         color: var(--text-muted);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .period {

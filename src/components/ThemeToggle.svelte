@@ -28,6 +28,7 @@
         color: var(--text-muted);
         cursor: pointer;
         font-size: 0.9rem;
+        min-height: 44px;
         padding: 0.55rem 0.9rem;
     }
 
@@ -35,5 +36,9 @@
     .theme-toggle:focus-visible {
         border-color: var(--primary-color);
         color: var(--primary-color);
+    }
+
+    .theme-toggle:active {
+        background: var(--surface-muted);
     }
 </style>

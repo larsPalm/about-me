@@ -57,7 +57,8 @@
         color: var(--text-muted);
         cursor: pointer;
         font-size: 0.95rem;
-        font-weight: bold;
+        font-weight: 600;
+        min-height: 44px;
         padding: 0.7rem 1.05rem;
         transition:
             border-color 0.2s ease,
@@ -74,11 +75,15 @@
     button.active {
         border-color: var(--primary-color);
         background: var(--primary-color);
-        color: white;
+        color: var(--text-on-primary);
+    }
+
+    button:not(.active):active {
+        background: var(--surface-muted);
     }
 
     .tab-content {
-        max-width: 880px;
+        max-width: none;
     }
 
     @media (max-width: 520px) {

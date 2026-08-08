@@ -45,4 +45,12 @@
         color: var(--primary-color);
         text-decoration: underline;
     }
+
+    @media (max-width: 520px) {
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            gap: 0.45rem 0.8rem;
+        }
+    }
 </style>

@@ -50,7 +50,7 @@
       <div>
         <p class="eyebrow">Palmtech</p>
         <h2 id="privacy-title">Personvern for CV-siden</h2>
-        <p class="updated">Sist oppdatert: 25. mai 2026</p>
+        <p class="updated">Sist oppdatert: 8. august 2026</p>
       </div>
       <button
         class="close"
@@ -112,11 +112,11 @@
     <section>
       <h3>Lagring, cookies og statistikk</h3>
       <p>
-        Nettstedet bruker ikke cookies eller analyseverktøy. Valgt språk og lyst
-        eller mørkt tema lagres i nettleserens lokale lagring (<code
+        Nettstedet bruker ikke cookies eller analyseverktøy. Valgt tema, lyst
+        eller mørkt, lagres i nettleserens lokale lagring (<code
           >localStorage</code
-        >) for å huske innstillingene dine ved senere besøk. Disse
-        innstillingene inneholder ikke CV-innhold eller kontaktopplysninger om
+        >) for å huske innstillingen ved senere besøk. Denne innstillingen
+        inneholder ikke CV-innhold eller kontaktopplysninger om
         deg.
       </p>
     </section>
@@ -138,7 +138,7 @@
     <section>
       <h3>Dine valg og rettigheter</h3>
       <p>
-        Du kan slette lagrede språk- og temavalg gjennom innstillingene for
+        Du kan slette lagret temavalg gjennom innstillingene for
         nettstedsdata i nettleseren din. Nettstedet ber deg ikke om å oppgi
         personopplysninger.
       </p>

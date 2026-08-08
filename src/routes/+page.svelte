@@ -156,7 +156,7 @@
         border-radius: 999px;
         color: var(--primary-color);
         font-size: 0.92rem;
-        font-weight: bold;
+        font-weight: 600;
         padding: 0.48rem 0.8rem;
     }
 
@@ -186,12 +186,12 @@
 
         .hero {
             flex-direction: column-reverse;
-            gap: 1.5rem;
+            gap: 1.25rem;
             margin-bottom: 2.5rem;
         }
 
         .portrait {
-            width: min(190px, 52vw);
+            width: min(150px, 42vw);
         }
     }
 </style>
