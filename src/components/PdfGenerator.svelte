@@ -4,13 +4,12 @@
     import type { Education } from "../types/education";
     import type { School } from "../types/school";
     import languagesNo from "../dataFiles/language.json";
-    import competenciesNo from "../dataFiles/kompetanse.json";
     import techStack from "../dataFiles/techStack.json";
     import schoolsNo from "../dataFiles/schools.json";
     import educationNo from "../dataFiles/education.json";
     import experienceNo from "../dataFiles/experience.json";
     import personalJson from "../dataFiles/contactInfo.json";
-    import { aiPdfKeywords, aiPdfPrompt, profileTitle } from "$lib/metadata/ai";
+    import { aiPdfKeywords, aiPdfPrompt } from "$lib/metadata/ai";
     import { t } from "../stores/i18n";
 
     $: tr = $t;
@@ -18,6 +17,15 @@
 
     const compact = (items: Array<Content | undefined>): Content[] =>
         items.filter((item): item is Content => item !== undefined);
+
+    const thesisSubtitleInNorwegian = (subtitle: string): string => {
+        const translatedSubtitles: Record<string, string> = {
+            "A framework for storing and analyzing OSA data from smartwatches":
+                "Et rammeverk for lagring og analyse av OSA-data fra smartklokker",
+        };
+
+        return translatedSubtitles[subtitle] ?? subtitle;
+    };
 
     const resolveVirtualFileSystem = (fonts: unknown): Record<string, string> => {
         const wrappedFonts = fonts as { vfs?: Record<string, string> };
@@ -40,15 +48,14 @@
             const experiences: Experience[] = experienceNo.erfaring as Experience[];
             const schools = schoolsNo;
             const languages = languagesNo;
-            const competencies = competenciesNo;
 
             const docDefinition: TDocumentDefinitions = {
                 info: {
-                    title: profileTitle,
+                    title: `CV – ${personalJson.name}`,
                     author: personalJson.name,
                     subject: `AI prompt: ${aiPdfPrompt}`,
                     keywords: aiPdfKeywords,
-                    creator: "about-me web app",
+                    creator: "CV-nettsted",
                     producer: "pdfmake",
                     creationDate: new Date(),
                     modDate: new Date(),
@@ -61,6 +68,12 @@ GitHub: ${personalJson.github}
 LinkedIn: ${personalJson.linkedin}`,
                         style: "personalInfo",
                         margin: [0, 0, 0, 10],
+                    },
+
+                    { text: tr.profileSection, style: "sectionHeader" },
+                    {
+                        text: tr.profileDescription,
+                        margin: [0, 0, 0, 6],
                     },
 
                     { text: tr.pdfExperience, style: "sectionHeader" },
@@ -146,7 +159,7 @@ LinkedIn: ${personalJson.linkedin}`,
                                     : undefined,
                                 edu.thesis
                                     ? {
-                                          text: `${tr.pdfThesis}: ${edu.thesis.name} – ${edu.thesis.subTitle}`,
+                                          text: `${tr.pdfThesis}: ${edu.thesis.name} – ${thesisSubtitleInNorwegian(edu.thesis.subTitle)}`,
                                           italics: true,
                                       }
                                     : undefined,
@@ -183,32 +196,11 @@ LinkedIn: ${personalJson.linkedin}`,
                         margin: [0, 0, 0, 10],
                     },
 
+                    { text: tr.pdfLang, style: "sectionHeader" },
                     {
-                        columns: [
-                            {
-                                width: "*",
-                                stack: [
-                                    { text: tr.pdfLang, style: "sectionHeader" },
-                                    {
-                                        ul: languages.map(
-                                            (language) =>
-                                                `${language.name}: ${language.level}`,
-                                        ),
-                                    },
-                                ],
-                            },
-                            {
-                                width: "*",
-                                stack: [
-                                    {
-                                        text: tr.pdfOtherComp,
-                                        style: "sectionHeader",
-                                    },
-                                    { ul: competencies },
-                                ],
-                            },
-                        ],
-                        columnGap: 20,
+                        ul: languages.map(
+                            (language) => `${language.name}: ${language.level}`,
+                        ),
                         margin: [0, 0, 0, 10],
                     },
 
@@ -226,14 +218,14 @@ LinkedIn: ${personalJson.linkedin}`,
                             {
                                 width: "*",
                                 stack: [
-                                    { text: "Frameworks", bold: true },
+                                    { text: tr.frameworks, bold: true },
                                     { ul: techStack.framework },
                                 ],
                             },
                             {
                                 width: "*",
                                 stack: [
-                                    { text: "Database", bold: true },
+                                    { text: tr.databases, bold: true },
                                     { ul: techStack.database },
                                     {
                                         text: "CI/CD",
@@ -246,16 +238,16 @@ LinkedIn: ${personalJson.linkedin}`,
                             {
                                 width: "*",
                                 stack: [
-                                    { text: "IaC", bold: true },
+                                    { text: tr.infrastructureAsCode, bold: true },
                                     { ul: techStack.iac },
                                     {
-                                        text: "Observability",
+                                        text: tr.observability,
                                         bold: true,
                                         margin: [0, 6, 0, 0],
                                     },
                                     { ul: techStack.observability },
                                     {
-                                        text: "Other",
+                                        text: tr.other,
                                         bold: true,
                                         margin: [0, 6, 0, 0],
                                     },

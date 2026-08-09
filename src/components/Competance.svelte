@@ -1,14 +1,11 @@
 <script lang="ts">
     import type { Language } from "../types/language";
     import languagesNo from "../dataFiles/language.json";
-    import competenciesNo from "../dataFiles/kompetanse.json";
     import { t } from "../stores/i18n";
 
     export let languages: Language[] | undefined = undefined;
-    export let achievements: string[] | undefined = undefined;
 
     $: displayLanguages = languages ?? languagesNo;
-    $: displayAchievements = achievements ?? competenciesNo;
 </script>
 
 <section class="additional" aria-labelledby="additional-heading">
@@ -19,14 +16,6 @@
             <ul>
                 {#each displayLanguages as lang (lang.name)}
                     <li><strong>{lang.name}:</strong> {lang.level}</li>
-                {/each}
-            </ul>
-        </article>
-        <article>
-            <h3>{$t.achievements}</h3>
-            <ul>
-                {#each displayAchievements as achievement (achievement)}
-                    <li>{achievement}</li>
                 {/each}
             </ul>
         </article>
@@ -41,7 +30,7 @@
 
     .cards {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(0, 35rem);
         gap: 0.9rem;
     }
 

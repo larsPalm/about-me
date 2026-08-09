@@ -21,32 +21,32 @@
         "from": "2020",
         "to": "2022",
         "subjects": [
-            "ethical hacking",
+            "etisk hacking",
             "NLP",
-            "data stream",
-            "complex event processing",
+            "datastrømmer",
+            "kompleks hendelsesbehandling",
             "IoT",
-            "security by design",
-            "smidig arbeid, og prosess-/team-forbedringer"
+            "innebygd sikkerhet",
+            "smidig arbeid og prosess-/teamforbedringer"
         ],
         "thesis": {
             "name": "The Cesar Framework",
             "subTitle": "A framework for storing and analyzing OSA data from smartwatches",
             "topics": [
-                "event emitting",
+                "hendelsesgenerering",
                 "server",
-                "apnea detection",
-                "data visualization",
-                "data analytics",
-                "machine learning",
+                "apnédeteksjon",
+                "datavisualisering",
+                "dataanalyse",
+                "maskinlæring",
                 "arkitektur"
             ]
         }
     },
     "pt": {
-        "school": "Akademiet For Personlig Trening",
+        "school": "Akademiet for Personlig Trening",
         "name": "Personlig trener",
-        "type": "1/2 årsenhet",
+        "type": "30 studiepoeng",
         "from": "2018",
         "to": "2019",
         "subjects": [
@@ -66,7 +66,7 @@
         "from": "2017",
         "to": "2020",
         "subjects": [
-            "database",
+            "databaser",
             "sikkerhet",
             "programmering",
             "objektorientert programmering",
@@ -75,7 +75,7 @@
             "smidig utvikling",
             "teamarbeid",
             "apputvikling",
-            "scripting",
+            "skripting",
             "logiske metoder",
             "parallell databehandling"
         ]
