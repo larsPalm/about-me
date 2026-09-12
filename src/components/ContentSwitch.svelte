@@ -14,23 +14,57 @@
         { id: "education" as Section, label: $t.education },
         { id: "additional" as Section, label: $t.additional },
     ];
+
+    const selectTab = (index: number) => {
+        activeTab = tabs[index].id;
+    };
+
+    const handleTabKeydown = (event: KeyboardEvent, index: number) => {
+        let nextIndex: number | undefined;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+            nextIndex = (index + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+            nextIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+            nextIndex = 0;
+        } else if (event.key === "End") {
+            nextIndex = tabs.length - 1;
+        }
+
+        if (nextIndex !== undefined) {
+            event.preventDefault();
+            selectTab(nextIndex);
+            document.getElementById(`tab-${tabs[nextIndex].id}`)?.focus();
+        }
+    };
 </script>
 
-<nav class="tabs" aria-label={$t.sections}>
+<div class="tabs" role="tablist" aria-label={$t.sections}>
     {#each tabs as tab (tab.id)}
         <button
             id="tab-{tab.id}"
             type="button"
+            role="tab"
             class:active={activeTab === tab.id}
-            aria-current={activeTab === tab.id ? "page" : undefined}
+            aria-selected={activeTab === tab.id}
+            aria-controls="panel-{tab.id}"
+            tabindex={activeTab === tab.id ? 0 : -1}
+            on:keydown={(event) => handleTabKeydown(event, tabs.indexOf(tab))}
             on:click={() => (activeTab = tab.id)}
         >
             {tab.label}
         </button>
     {/each}
-</nav>
+</div>
 
-<div class="tab-content" aria-labelledby="tab-{activeTab}">
+<div
+    id="panel-{activeTab}"
+    class="tab-content"
+    role="tabpanel"
+    aria-labelledby="tab-{activeTab}"
+    tabindex="0"
+>
     {#if activeTab === "experience"}
         <ExperienceList />
     {:else if activeTab === "skills"}

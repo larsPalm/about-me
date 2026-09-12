@@ -8,5 +8,6 @@ export interface Education {
     from: string,
     grade?: string,
     subjects: string[],
+    comments?: string[],
     thesis?: Thesis
 }

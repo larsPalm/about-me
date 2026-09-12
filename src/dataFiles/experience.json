@@ -26,9 +26,9 @@
             "role": "IT Architect Graduate",
             "accomplishments": [
                 "Fullførte DNBs treårige graduateprogram i IT og arkitektur.",
-                "Gjennomførte en årsenhet i IT-arkitektur ved UiO.",
+                "Gjennomførte en årsenhet i IT-arkitektur ved UiO over tre år parallelt med graduateprogrammet.",
                 "Reduserte datamengden i DNBs chatboter i tråd med GDPR-prinsippet om dataminimering, noe som også reduserte kostnader.",
-                "Forbedret meldingsflyten i mobilbanken for bedrifter og reduserte AWS-kostnader."
+                "Forbedret meldingsflyten i mobilbanken for bedrifter og reduserte AWS-kostnader ved å fjerne overflødige AWS-ressurser, inkludert ressurser som ikke lenger var i bruk."
             ],
             "from": "august 2022",
             "to": "august 2025",

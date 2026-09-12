@@ -5,7 +5,7 @@
     export let experience: Experience;
     export let featured: boolean = false;
 
-    let isOpen = experience.current;
+    let isOpen = experience.current || featured;
     $: hasDetails =
         Boolean(experience.accomplishments?.length) ||
         Boolean(experience.comments?.length) ||

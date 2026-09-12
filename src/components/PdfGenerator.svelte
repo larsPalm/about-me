@@ -151,6 +151,13 @@ LinkedIn: ${personalJson.linkedin}`,
                                     text: `${edu.school} (${edu.from} – ${edu.to})`,
                                     margin: [0, 0, 0, 3],
                                 },
+                                edu.comments?.length
+                                    ? {
+                                          text: edu.comments.join(" "),
+                                          italics: true,
+                                          margin: [0, 0, 0, 3],
+                                      }
+                                    : undefined,
                                 edu.subjects.length
                                     ? {
                                           text: `${tr.topics}: ${edu.subjects.join(", ")}`,
@@ -228,24 +235,18 @@ LinkedIn: ${personalJson.linkedin}`,
                                     { text: tr.databases, bold: true },
                                     { ul: techStack.database },
                                     {
-                                        text: "CI/CD",
+                                        text: tr.secondaryDatabases,
                                         bold: true,
                                         margin: [0, 6, 0, 0],
                                     },
-                                    { ul: techStack.cicd },
+                                    { ul: techStack.secondaryDatabase },
                                 ],
                             },
                             {
                                 width: "*",
                                 stack: [
-                                    { text: tr.infrastructureAsCode, bold: true },
-                                    { ul: techStack.iac },
-                                    {
-                                        text: tr.observability,
-                                        bold: true,
-                                        margin: [0, 6, 0, 0],
-                                    },
-                                    { ul: techStack.observability },
+                                    { text: tr.devops, bold: true },
+                                    { ul: techStack.devops },
                                     {
                                         text: tr.other,
                                         bold: true,
@@ -264,7 +265,13 @@ LinkedIn: ${personalJson.linkedin}`,
                     {
                         columns: techStack.clouds.map((cloud) => ({
                             stack: [
-                                { text: cloud.name, bold: true },
+                                {
+                                    text:
+                                        cloud.priority === "secondary"
+                                            ? `${cloud.name} – ${tr.secondaryExperience}`
+                                            : `${cloud.name} – hovedplattform`,
+                                    bold: true,
+                                },
                                 { text: cloud.resources.join(", ") },
                             ],
                         })),

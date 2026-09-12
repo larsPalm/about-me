@@ -14,10 +14,12 @@
         <SkillAccordion title={$t.programming} list={skills.programming} />
         <SkillAccordion title={$t.clouds} list={skills.clouds} />
         <SkillAccordion title={$t.frameworks} list={skills.framework} />
-        <SkillAccordion title={$t.databases} list={skills.database} />
-        <SkillAccordion title={$t.infrastructureAsCode} list={skills.iac} />
-        <SkillAccordion title="CI/CD" list={skills.cicd} />
-        <SkillAccordion title={$t.observability} list={skills.observability} />
+        <SkillAccordion
+            title={$t.databases}
+            list={skills.database}
+            secondaryList={skills.secondaryDatabase}
+        />
+        <SkillAccordion title={$t.devops} list={skills.devops} />
         <SkillAccordion title={$t.other} list={skills.other} />
     </div>
 </section>

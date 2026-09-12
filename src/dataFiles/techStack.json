@@ -4,86 +4,106 @@
         "Python",
         "Java",
         "TypeScript",
-        "JavaScript",
-        "SQL",
-        "Bash",
-        "C"
+        "SQL"
     ],
     "framework": [
         "FastAPI",
         "Spring",
         "Micronaut",
         "Fastify",
-        "Node.js",
-        "Svelte",
-        "Kotlin Multiplatform",
-        "Express",
-        "React",
-        "Django"
+        "Node.js"
     ],
     "database": [
         "PostgreSQL",
-        "MySQL",
-        "SQL Server",
-        "DynamoDB",
-        "SQLite",
+        "DynamoDB"
+    ],
+    "secondaryDatabase": [
         "Neo4j",
         "Cosmos DB"
     ],
     "clouds": [
         {
             "name": "AWS",
+            "priority": "primary",
             "resources": [
                 "Lambda",
-                "Fargate",
+                "ECS/Fargate",
                 "SQS",
                 "DynamoDB",
-                "CloudFront",
                 "S3",
                 "ElastiCache",
                 "Aurora/RDS",
-                "CloudWatch",
-                "ECS",
-                "Batch",
-                "EC2",
-                "Secrets Manager",
-                "Parameter Store",
-                "KMS",
-                "API Gateway",
-                "ECR"
+                "CloudWatch"
             ]
         },
         {
             "name": "Azure",
+            "priority": "secondary",
             "resources": [
                 "App Service",
                 "Cosmos DB",
                 "Container Apps",
                 "Blob Storage",
-                "Table Storage",
-                "SQL Server",
-                "ACR",
-                "CDN"
+                "SQL Server"
             ]
         }
     ],
-    "iac": [
+    "devops": [
         "Terraform",
         "Terragrunt",
-        "CloudFormation"
-    ],
-    "cicd": [
         "GitLab CI",
-        "GitHub Actions"
-    ],
-    "observability": [
+        "GitHub Actions",
         "Grafana",
         "Prometheus",
-        "OpenTelemetry"
+        "OpenTelemetry",
+        "Docker"
     ],
     "other": [
-        "Docker",
         "Kafka",
-        "Apache Flink"
-    ]
+        "Apache Flink",
+        "Svelte",
+        "Kotlin Multiplatform"
+    ],
+    "obsolete": {
+        "cloud": [
+            {
+                "name": "AWS",
+                "resources": [
+                    "CloudFront",
+                    "Batch",
+                    "EC2",
+                    "Secrets Manager",
+                    "Parameter Store",
+                    "KMS",
+                    "API Gateway",
+                    "ECR"
+                ]
+            },
+            {
+                "name": "Azure",
+                "resources": [
+                    "Table Storage",
+                    "ACR",
+                    "CDN"
+                ]
+            }
+        ],
+        "framework": [
+            "Express",
+            "React",
+            "Django"
+        ],
+        "databases": [
+            "MySQL",
+            "SQL Server",
+            "SQLite"
+        ],
+        "iac": [
+            "CloudFormation"
+        ],
+        "programming": [
+            "Bash",
+            "C"
+        ]
+    }
 }

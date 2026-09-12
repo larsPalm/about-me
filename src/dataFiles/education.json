@@ -5,6 +5,9 @@
         "type": "Årsenhet",
         "from": "2022",
         "to": "2025",
+        "comments": [
+            "Gjennomført over tre år parallelt med graduateprogrammet."
+        ],
         "subjects": [
             "utvikling/drift av komplekse systemer",
             "DevOps",

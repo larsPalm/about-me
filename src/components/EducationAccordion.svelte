@@ -29,6 +29,12 @@
 
     {#if isOpen}
         <div class="body" id={contentId}>
+            {#if education.comments?.length}
+                {#each education.comments as comment (comment)}
+                    <p class="comments">{comment}</p>
+                {/each}
+            {/if}
+
             {#if education.thesis}
                 <p>
                     <strong>{$t.pdfThesis}:</strong>
@@ -115,6 +121,10 @@
 
     .body p + p {
         margin-top: 0.65rem;
+    }
+
+    .comments {
+        font-style: italic;
     }
 
     .body strong {

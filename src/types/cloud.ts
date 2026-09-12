@@ -1,4 +1,5 @@
 export interface Cloud {
-    name: string,
-    resources: string[]
+    name: string;
+    priority?: string;
+    resources: string[];
 }

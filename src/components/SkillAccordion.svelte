@@ -1,8 +1,10 @@
 <script lang="ts">
     import type { Cloud } from "../types/cloud";
+    import { t } from "../stores/i18n";
 
     export let title: string;
     export let list: string[] | Cloud[] = [];
+    export let secondaryList: string[] = [];
 
     const isCloud = (item: string | Cloud): item is Cloud =>
         typeof item === "object" && "resources" in item;
@@ -14,12 +16,22 @@
         {#each list as item (typeof item === "string" ? item : item.name)}
             {#if isCloud(item)}
                 <li>
-                    <strong>{item.name}:</strong> {item.resources.join(", ")}
+                    <strong>{item.name}:</strong>
+                    {#if item.priority === "secondary"}
+                        <span class="secondary-label">({$t.secondaryExperience})</span>
+                    {/if}
+                    {item.resources.join(", ")}
                 </li>
             {:else}
                 <li>{item}</li>
             {/if}
         {/each}
+        {#if secondaryList.length > 0}
+            <li class="secondary-heading">{$t.secondaryDatabases}</li>
+            {#each secondaryList as item (item)}
+                <li>{item}</li>
+            {/each}
+        {/if}
     </ul>
 </article>
 
@@ -48,5 +60,20 @@
 
     li + li {
         margin-top: 0.28rem;
+    }
+
+    .secondary-label {
+        color: var(--text-muted);
+        font-size: 0.88em;
+        font-style: italic;
+        margin-left: 0.25rem;
+    }
+
+    .secondary-heading {
+        color: var(--text-color);
+        font-weight: 600;
+        list-style: none;
+        margin-left: -1.05rem;
+        margin-top: 0.8rem;
     }
 </style>

@@ -4,9 +4,8 @@ export interface TechSkills {
     programming: string[];
     framework: string[];
     clouds: Cloud[];
-    cicd: string[];
-    iac: string[];
+    devops: string[];
     database: string[];
+    secondaryDatabase: string[];
     other: string[];
-    observability: string[];
 }
