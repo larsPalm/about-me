@@ -13,8 +13,8 @@
     <div class="entries">
         <EducationAccordion education={utdanning.dnb} />
         <EducationAccordion education={utdanning.master} />
-        <EducationAccordion education={utdanning.pt} />
         <EducationAccordion education={utdanning.bachelor} />
+        <EducationAccordion education={utdanning.pt} />
     </div>
 </section>
 

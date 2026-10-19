@@ -4,12 +4,17 @@
             "company": "DNB",
             "department": "Betalingsrapportering",
             "role": "Software Engineer",
+            "accomplishments": [
+                "Reduserte årlige AWS-kostnader med ca. 500 000 kr gjennom opprydding i snapshots."
+            ],
             "from": "august 2025",
             "to": null,
             "current": true,
             "comments": [
                 "Utvikler og drifter AWS-infrastruktur og backendtjenester for CAMT-rapportering.",
-                "Løsningene mottar og bearbeider data fra flere kildesystemer før dataene sammenstilles til ferdige CAMT-rapporter."
+                "Løsningene mottar og bearbeider data fra flere kildesystemer før dataene sammenstilles til ferdige CAMT-rapporter.",
+                "Arbeider med å implementere katastrofegjenoppretting (DR) og sikre stabil drift.",
+                "Vurderer tiltak for å redusere årlige AWS-kostnader, blant annet bruk av Graviton-baserte EC2-instanser og overgang fra ECS på EC2 til ECS på Fargate."
             ],
             "remarks": [
                 "DevOps",

@@ -46,22 +46,6 @@
             ]
         }
     },
-    "pt": {
-        "school": "Akademiet for Personlig Trening",
-        "name": "Personlig trener",
-        "type": "30 studiepoeng",
-        "from": "2018",
-        "to": "2019",
-        "subjects": [
-            "anatomi",
-            "treningslære",
-            "ernæring",
-            "mental trening",
-            "PT",
-            "styrketrening",
-            "utholdenhetstrening"
-        ]
-    },
     "bachelor": {
         "school": "Universitetet i Oslo",
         "name": "Informatikk: programmering og systemarkitektur",
@@ -81,6 +65,22 @@
             "skripting",
             "logiske metoder",
             "parallell databehandling"
+        ]
+    },
+    "pt": {
+        "school": "Akademiet for Personlig Trening",
+        "name": "Personlig trener",
+        "type": "30 studiepoeng",
+        "from": "2018",
+        "to": "2019",
+        "subjects": [
+            "anatomi",
+            "treningslære",
+            "ernæring",
+            "mental trening",
+            "PT",
+            "styrketrening",
+            "utholdenhetstrening"
         ]
     }
 }

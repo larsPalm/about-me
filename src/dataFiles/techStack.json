@@ -10,8 +10,7 @@
         "FastAPI",
         "Spring",
         "Micronaut",
-        "Fastify",
-        "Node.js"
+        "Fastify"
     ],
     "database": [
         "PostgreSQL",
@@ -91,7 +90,8 @@
         "framework": [
             "Express",
             "React",
-            "Django"
+            "Django",
+            "Node.js"
         ],
         "databases": [
             "MySQL",
