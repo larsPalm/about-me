@@ -20,6 +20,7 @@
             secondaryList={skills.secondaryDatabase}
         />
         <SkillAccordion title={$t.devops} list={skills.devops} />
+        <SkillAccordion title={$t.security} list={skills.security} />
         <SkillAccordion title={$t.other} list={skills.other} />
     </div>
 </section>

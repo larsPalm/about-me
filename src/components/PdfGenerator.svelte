@@ -227,6 +227,12 @@ LinkedIn: ${personalJson.linkedin}`,
                                 stack: [
                                     { text: tr.frameworks, bold: true },
                                     { ul: techStack.framework },
+                                    {
+                                        text: tr.security,
+                                        bold: true,
+                                        margin: [0, 6, 0, 0],
+                                    },
+                                    { ul: techStack.security },
                                 ],
                             },
                             {

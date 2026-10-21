@@ -20,6 +20,10 @@
         "Neo4j",
         "Cosmos DB"
     ],
+    "security": [
+        "Keycloak",
+        "SpiceDB"
+    ],
     "clouds": [
         {
             "name": "AWS",
@@ -48,6 +52,7 @@
         }
     ],
     "devops": [
+        "Flyway",
         "Terraform",
         "Terragrunt",
         "GitLab CI",

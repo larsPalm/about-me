@@ -7,5 +7,6 @@ export interface TechSkills {
     devops: string[];
     database: string[];
     secondaryDatabase: string[];
+    security: string[];
     other: string[];
 }

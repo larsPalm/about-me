@@ -69,6 +69,7 @@ export const no = {
     secondaryDatabases: "Andre databaser",
     secondaryExperience: "sekundær erfaring",
     devops: "DevOps",
+    security: "Sikkerhet og tilgangsstyring",
     themeDark: "Mørk modus",
     themeLight: "Lys modus",
     expand: "Vis detaljer for",
